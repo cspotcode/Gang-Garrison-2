@@ -1,0 +1,349 @@
+Function	Ease of port	Library	Could No-op and game would run?	Could shim and game would run?
+GG2DLL_compute_MD5	replace			
+GG2DLL_embed_PNG_leveldata				
+GG2DLL_extract_PNG_leveldata				
+abs	map to C#	Math		
+action_splash_web			TRUE	
+append_file_to_buffer		Net		
+arcsin	map to C#	Math		
+arctan	map to C#	Math		
+background_add				
+background_delete				
+background_get_height				
+background_get_width				
+background_replace				
+buffer_bytes_left		DataStructures		
+buffer_clear		DataStructures		
+buffer_create		DataStructures		
+buffer_destroy		DataStructures		
+buffer_set_readpos		DataStructures		
+buffer_size		DataStructures		
+ceil		Math		
+choose		Math		
+chr		String		
+clipboard_get_text		Windows		
+collision_circle				
+collision_line				
+collision_point				
+collision_rectangle				
+cos		Math		
+date_current_date		DateTime		TRUE
+date_current_datetime		DateTime		TRUE
+date_get_day		DateTime		TRUE
+date_get_hour		DateTime		TRUE
+date_get_minute		DateTime		TRUE
+date_get_month		DateTime		TRUE
+date_get_second		DateTime		TRUE
+date_get_year		DateTime		TRUE
+degtorad		Math		
+directory_create	AI generates C# equivalent	Filesystem		
+directory_exists	AI generates C# equivalent	Filesystem		
+distance_to_object				
+distance_to_point				
+draw_background			TRUE	
+draw_background_ext			TRUE	
+draw_circle_color			TRUE	
+draw_get_alpha			TRUE	
+draw_healthbar			TRUE	
+draw_line_width_color			TRUE	
+draw_rectangle			TRUE	
+draw_rectangle_color			TRUE	
+draw_set_alpha			TRUE	
+draw_set_color			TRUE	
+draw_set_font			TRUE	
+draw_set_halign			TRUE	
+draw_set_valign			TRUE	
+draw_sprite				
+draw_sprite_ext				
+draw_sprite_part_ext				
+draw_sprite_stretched_ext				
+draw_text				
+draw_text_color				
+draw_text_ext				
+draw_text_ext_color				
+draw_text_transformed				
+draw_text_transformed_color				
+ds_list_add	AI generates C# equivalent	DataStructures		
+ds_list_clear	AI generates C# equivalent	DataStructures		
+ds_list_copy	AI generates C# equivalent	DataStructures		
+ds_list_create	AI generates C# equivalent	DataStructures		
+ds_list_delete	AI generates C# equivalent	DataStructures		
+ds_list_destroy	AI generates C# equivalent	DataStructures		
+ds_list_empty	AI generates C# equivalent	DataStructures		
+ds_list_find_index	AI generates C# equivalent	DataStructures		
+ds_list_find_value	AI generates C# equivalent	DataStructures		
+ds_list_insert	AI generates C# equivalent	DataStructures		
+ds_list_replace	AI generates C# equivalent	DataStructures		
+ds_list_shuffle	AI generates C# equivalent	DataStructures		
+ds_list_size	AI generates C# equivalent	DataStructures		
+ds_list_sort	AI generates C# equivalent	DataStructures		
+ds_map_add	AI generates C# equivalent	DataStructures		
+ds_map_clear	AI generates C# equivalent	DataStructures		
+ds_map_create	AI generates C# equivalent	DataStructures		
+ds_map_delete	AI generates C# equivalent	DataStructures		
+ds_map_destroy	AI generates C# equivalent	DataStructures		
+ds_map_exists	AI generates C# equivalent	DataStructures		
+ds_map_find_first	AI generates C# equivalent	DataStructures		
+ds_map_find_next	AI generates C# equivalent	DataStructures		
+ds_map_find_value	AI generates C# equivalent	DataStructures		
+ds_map_replace	AI generates C# equivalent	DataStructures		
+ds_map_size	AI generates C# equivalent	DataStructures		
+ds_priority_add	AI generates C# equivalent	DataStructures		
+ds_priority_create	AI generates C# equivalent	DataStructures		
+ds_priority_delete_max	AI generates C# equivalent	DataStructures		
+ds_priority_delete_min	AI generates C# equivalent	DataStructures		
+ds_priority_destroy	AI generates C# equivalent	DataStructures		
+ds_priority_empty	AI generates C# equivalent	DataStructures		
+ds_priority_size	AI generates C# equivalent	DataStructures		
+ds_queue_create	AI generates C# equivalent	DataStructures		
+ds_queue_dequeue	AI generates C# equivalent	DataStructures		
+ds_queue_destroy	AI generates C# equivalent	DataStructures		
+ds_queue_empty	AI generates C# equivalent	DataStructures		
+ds_queue_enqueue	AI generates C# equivalent	DataStructures		
+ds_queue_head	AI generates C# equivalent	DataStructures		
+ds_queue_size	AI generates C# equivalent	DataStructures		
+effect_create_above		Particles	TRUE	
+effect_create_below		Particles	TRUE	
+event_inherited	Map to C# language feature			
+event_perform				
+event_user				
+execute_file	N/A			
+execute_program	N/A			
+execute_string	N/A			
+file_bin_close	AI generates C# equivalent	Filesystem		
+file_bin_open	AI generates C# equivalent	Filesystem		
+file_bin_position	AI generates C# equivalent	Filesystem		
+file_bin_read_byte	AI generates C# equivalent	Filesystem		
+file_bin_size	AI generates C# equivalent	Filesystem		
+file_bin_write_byte	AI generates C# equivalent	Filesystem		
+file_copy	AI generates C# equivalent	Filesystem		
+file_delete	AI generates C# equivalent	Filesystem		
+file_exists	AI generates C# equivalent	Filesystem		
+file_find_close	AI generates C# equivalent	Filesystem		
+file_find_first	AI generates C# equivalent	Filesystem		
+file_find_next	AI generates C# equivalent	Filesystem		
+file_rename	AI generates C# equivalent	Filesystem		
+file_text_close	AI generates C# equivalent	Filesystem		
+file_text_eof	AI generates C# equivalent	Filesystem		
+file_text_open_read	AI generates C# equivalent	Filesystem		
+file_text_open_write	AI generates C# equivalent	Filesystem		
+file_text_read_string	AI generates C# equivalent	Filesystem		
+file_text_readln	AI generates C# equivalent	Filesystem		
+file_text_write_string	AI generates C# equivalent	Filesystem		
+floor		Math		
+font_add_sprite				
+game_end				
+get_integer		WindowsGUI		
+get_open_filename		WindowsGUI		
+get_save_filename		WindowsGUI		
+get_string		WindowsGUI		
+ini_close		IniFile		
+ini_key_delete		IniFile		
+ini_open		IniFile		
+ini_read_real		IniFile		
+ini_read_string		IniFile		
+ini_write_real		IniFile		
+ini_write_string		IniFile		
+instance_create				
+instance_destroy				
+instance_exists				
+instance_find				
+instance_nearest				
+instance_number				
+io_clear		KeyboardMouse		
+io_handle		KeyboardMouse		
+ip_lookup_create		Net		
+ip_lookup_destroy		Net		
+ip_lookup_has_next		Net		
+ip_lookup_next_result		Net		
+ip_lookup_ready		Net		
+irandom		Math		
+irandom_range		Math		
+is_real		Math		
+is_string		String		
+keyboard_check		KeyboardMouse		
+keyboard_check_direct		KeyboardMouse		
+keyboard_check_pressed		KeyboardMouse		
+keyboard_clear		KeyboardMouse		
+lengthdir_x				
+lengthdir_y				
+log2		Math		
+make_color_rgb				
+max		Math		
+median		Math		
+merge_color				
+message		WindowsGUI		
+message_background		WindowsGUI		
+message_button		WindowsGUI		
+message_button_font		WindowsGUI		
+message_input_font		WindowsGUI		
+message_text_font		WindowsGUI		
+min		Math		
+motion_add				
+motion_set				
+mouse_check_button		KeyboardMouse		
+mouse_check_button_pressed		KeyboardMouse		
+mouse_check_button_released		KeyboardMouse		
+mouse_clear		KeyboardMouse		
+mouse_wheel_down		KeyboardMouse		
+mouse_wheel_up		KeyboardMouse		
+move_contact_solid				
+move_outside_solid				
+move_towards_point				
+object_add				
+object_is_ancestor				
+object_set_persistent				
+ord		String		
+parameter_count		Windows		
+parameter_string		Windows		
+part_particles_create		Particles		TRUE
+part_system_create		Particles		TRUE
+part_system_depth		Particles	TRUE	
+part_type_alpha2		Particles	TRUE	
+part_type_alpha3		Particles	TRUE	
+part_type_create		Particles	TRUE	
+part_type_destroy		Particles	TRUE	
+part_type_life		Particles	TRUE	
+part_type_orientation		Particles	TRUE	
+part_type_scale		Particles	TRUE	
+part_type_sprite		Particles	TRUE	
+place_free				
+place_meeting				
+point_direction				
+point_distance				
+power		Math		
+random		Math		
+random_get_seed		Math		
+random_range		Math		
+random_set_seed		Math		
+randomize		Math		
+read_byte		Net		
+read_short		Net		
+read_string		Net		
+read_ubyte		Net		
+read_uint		Net		
+read_ushort		Net		
+real		Math		
+registry_exists_ext		Windows		
+registry_read_real_ext		Windows		
+registry_read_string_ext		Windows		
+registry_set_root		Windows		
+room_goto				
+room_set_view				
+round		Math		
+screen_redraw				
+screen_refresh				
+screen_save				TRUE
+screen_save_part				TRUE
+script_execute			TRUE	
+set_little_endian		Net		
+set_little_endian_global		Net		
+set_synchronization				
+show_debug_message		Log	TRUE	
+show_error		Log	TRUE	
+show_menu_pos		WindowsGUI		
+show_message		WindowsGUI	TRUE	
+show_message_ext		WindowsGUI	TRUE	
+show_question		WindowsGUI		TRUE
+sign		Math		
+sin		Math		
+sleep				
+socket_accept		Net		
+socket_connecting		Net		
+socket_destroy		Net		
+socket_destroy_abortive		Net		
+socket_error		Net		
+socket_has_error		Net		
+socket_receivebuffer_size		Net		
+socket_remote_ip		Net		
+socket_send		Net		
+sound_add		Audio		
+sound_global_volume		Audio		
+sound_isplaying		Audio		
+sound_loop		Audio		
+sound_pan		Audio		
+sound_play		Audio		
+sound_stop		Audio		
+sound_stop_all		Audio		
+sound_volume		Audio		
+splash_set_interrupt		WindowsGUI	TRUE	
+splash_set_main		WindowsGUI	TRUE	
+splash_show_web		WindowsGUI	TRUE	
+sprite_add				
+sprite_assign				
+sprite_create_from_surface				
+sprite_delete				
+sprite_exists				
+sprite_get_bbox_bottom				
+sprite_get_bbox_left				
+sprite_get_bbox_right				
+sprite_get_bbox_top				
+sprite_get_height				
+sprite_get_number				
+sprite_get_width				
+sprite_get_xoffset				
+sprite_get_yoffset				
+sprite_replace				
+sprite_set_offset				
+sqr		Math		
+sqrt		Math		
+string		String		
+string_char_at		String		
+string_copy		String		
+string_count		String		
+string_delete		String		
+string_digits		String		
+string_height				TRUE
+string_height_ext				TRUE
+string_length		String		
+string_lettersdigits		String		
+string_lower		String		
+string_pos		String		
+string_replace		String		
+string_replace_all		String		
+string_width				TRUE
+surface_create				
+surface_free				
+surface_reset_target				
+surface_set_target				
+tan		Math		
+tcp_connect		Net		
+tcp_eof		Net		
+tcp_listen		Net		
+tcp_receive		Net		
+tcp_receive_available		Net		
+test_assert_eq		UnitTest	TRUE	
+udp_send		Net		
+upnp_discover		Net	TRUE	
+upnp_error_string		Net	TRUE	
+upnp_forward_port		Net	TRUE	
+upnp_release_port		Net	TRUE	
+upnp_set_description		Net	TRUE	
+variable_global_exists		Reflection		
+variable_global_set		Reflection		
+variable_local_exists		Reflection		
+window_default				
+window_get_cursor			TRUE	
+window_get_fullscreen			TRUE	
+window_get_showborder			TRUE	
+window_get_width			TRUE	
+window_get_x			TRUE	
+window_get_y			TRUE	
+window_mouse_get_x		KeyboardMouse		
+window_mouse_get_y		KeyboardMouse		
+window_set_cursor			TRUE	
+window_set_fullscreen			TRUE	
+window_set_position			TRUE	
+window_set_region_scale			TRUE	
+window_set_showborder			TRUE	
+window_views_mouse_get_x		KeyboardMouse		
+window_views_mouse_get_y		KeyboardMouse		
+write_buffer		Net		
+write_buffer_part		Net		
+write_buffer_to_file		Net		
+write_byte		Net		
+write_short		Net		
+write_string		Net		
+write_ubyte		Net		
+write_uint		Net		
+write_ushort		Net		
