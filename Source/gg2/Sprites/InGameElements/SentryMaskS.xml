@@ -2,7 +2,7 @@
 <sprite>
   <origin x="22" y="27"/>
   <mask>
-    <separate>true</separate>
+    <separate>false</separate>
     <shape>RECTANGLE</shape>
     <bounds alphaTolerance="0" mode="AUTO"/>
   </mask>
