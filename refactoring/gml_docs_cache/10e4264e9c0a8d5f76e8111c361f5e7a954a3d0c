@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.3.13.2_5";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>instance_change</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page outlining the function instance_change" />
+<meta name="rh-index-keywords" content="instance_change" />
+<meta name="search-keywords" content="instance_change" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Instances/instance_copy.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Instances/instance_exists.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="instance_change">
+<span>instance_change</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>instance_change</h1>
+<p>You can use this function to change one instance of an object into another instance of a different object, and while doing so decide whether to perform the initial instance&#39;s Destroy and Clean Up Events and the new instance&#39;s Create Event.</p>
+<p>In this way, you can have (for example) a bomb change into an explosion - in which case the &quot;perf&quot; argument would probably be true as you would want the bomb to perform its Destroy Event and Clean Up Event, as well as the explosion to perform its Create Event - or you could have your player character change into a different one - in which case the &quot;perf&quot; argument would probably be false as you do not want the instances to perform their Create and Destroy/Clean Up events so it keeps the same properties.</p>
+<p>It is worth noting that changing the instance means that you should perform no further actions with that instance until the next step, in particular trying to access variables etc. as that will cause an error. Basically, you change the instance but it is not actually available until the end of the current step, so to access any of the variables it contains directly (for example, calling <span class="inline2">obj_Changed.x</span>) will not work.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_warning.hts"><span class="warning">WARNING</span></span> When changing a physics enabled instance, its physical properties <b>will not be carried over</b> to the new instance being changed into. Therefore you should have code in place to &quot;transfer&quot; the physics state of the current instance over to the new instance, or have defined the new instance&#39;s physical properties in its Create Event, or in the object editor. For this reason it is not recommended to use this function with physics enabled instances, but rather use a combination of the functions <span style="font-size:1px;"><span class="inline2">instance_destroy()</span></span> and <span><span style="font-size:1px;"><span class="inline2">instance_create_layer()</span></span>.</span></p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">instance_change(obj, perf);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>obj</td>
+<td><span data-keyref="Type_Asset_Object"><a target="_blank" href="../../../../The_Asset_Editors/Objects.htm">Object Asset</a></span></td>
+<td>The new object the calling object will change into.</td>
+</tr>
+<tr>
+<td>perf</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td>Whether to perform creation and destruction events (<span class="inline2">true</span>) or not (<span class="inline2">false</span>).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (keyboard_check(vk_enter)) <br/>
+{<br/>
+    instance_change(obj_Player_Swimming, false);<br/>
+    exit;<br/>
+}</p>
+<p>The above code will change the calling instance into an instance of &quot;obj_Player_Swimming&quot; without performing the original instances destroy event nor the new instances create event when the user presses the &quot;Enter&quot; key, exiting the code block when done.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Instances.htm">Instances</a></div>
+<div style="float:right">Next: <a href="instance_copy.htm">instance_copy</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59d6bec53bab',t:'MTcyNjk0NTc4MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

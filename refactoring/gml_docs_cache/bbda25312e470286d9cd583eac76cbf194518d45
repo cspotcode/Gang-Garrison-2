@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.14.6.0_3";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>phy_angular_damping</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for phy_angular_damping" />
+<meta name="rh-index-keywords" content="phy_angular_damping" />
+<meta name="search-keywords" content="phy_angular_damping" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Physics/Physics_Variables/phy_linear_velocity_x.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Physics/Physics_Variables/phy_angular_velocity.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="phy_angular_damping">
+<span>phy_angular_damping</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>phy_angular_damping</h1>
+<p>This variable can be used to set the angular damping of the instance, or it can be used to get the current angular damping. The damping is the amount of &quot;resistance&quot; to angular rotation that the physics enabled instance has, with a lower value permitting the instance to rotate faster after a collision (for example) and a higher value making it require a more forceful push and rotate slower</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">phy_angular_damping;</p>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span> (single precision floating point value, or <span class="inline">undefined</span> if the instance is not physics enabled)</p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (place_meeting(phy_position_x, phy_position_y, obj_Water)) <br/>
+{<br/>
+    phy_angular_damping = 10;<br/>
+}<br/>
+else<br/>
+{<br/>
+    phy_angular_damping = 3;<br/>
+}</p>
+<p>The above code will check for a collision between the calling instance and instances of &quot;obj_Water&quot; and change the angular damping accordingly.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Physics_Variables.htm">Physics Variables</a></div>
+<div style="float:right">Next: <a href="phy_linear_velocity_x.htm">phy_linear_velocity_x</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c62a84c9a905d',t:'MTcyNjk0NjE0MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

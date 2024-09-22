@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.8.1.0_17";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>keyboard_string</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for keyboard_string" />
+<meta name="rh-index-keywords" content="keyboard_string" />
+<meta name="search-keywords" content="keyboard_string" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Game_Input/Mouse_Input/Mouse_Input.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Game_Input/Keyboard_Input/keyboard_lastchar.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="keyboard_string">
+<span>keyboard_string</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">keyboard_string</span></h1>
+<p>This variable holds a string containing the last (at most) 1024 characters typed on the keyboard. This string will only contain printable characters typed, but it <i>will</i> correctly respond to pressing the backspace key by erasing the last character. This variable is <i>not</i> read only and you can change it, for example to set it to <span class="inline2">&quot;&quot;</span> (an empty string) if you handled it already, and you can use the <a href="../../Strings/Strings.htm">String Functions</a> to manipulate it.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> When using the on-screen <a href="../Virtual_Keys_And_Keyboards/Virtual_Keys_And_Keyboards.htm">Virtual Keyboard</a>, <i>only</i> this variable will be updated with the keyboard input.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> On Xbox GDK, this variable will only function when using the <a href="../Virtual_Keys_And_Keyboards/keyboard_virtual_show.htm">virtual keyboard</a>. See <a href="https://help.gamemaker.io/hc/en-us/articles/15111170357149">this Helpdesk article</a> for more info.</p>
+<p> </p>
+<h4><b>Syntax:</b></h4>
+<p class="code"><span data-field="title" data-format="default">keyboard_string</span></p>
+<p> </p>
+<h4><b>Returns:</b></h4>
+<p class="code"><span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></p>
+<p> </p>
+<h4><b>Example:</b></h4>
+<p class="code">if string_length(<span data-field="title" data-format="default">keyboard_string</span>) &gt; 15<br/>
+{<br/>
+    <span data-field="title" data-format="default">keyboard_string</span> = string_copy(<span data-field="title" data-format="default">keyboard_string</span>, 1, 15);<br/>
+}</p>
+<p>The above code will limit the length of the keyboard string to 15 characters, removing those that are over that limit by copying the first fifteen characters back into the variable.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Keyboard_Input.htm">Keyboard Input</a></div>
+<div style="float:right">Next: <a href="io_clear.htm">io_clear</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59e128103bab',t:'MTcyNjk0NTc4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

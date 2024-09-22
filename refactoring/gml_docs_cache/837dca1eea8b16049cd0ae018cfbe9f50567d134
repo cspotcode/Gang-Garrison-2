@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.23.1.0_11";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dbg_button</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../assets/css/default.css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="dbg_button" />
+<meta name="search-keywords" content="dbg_button" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Debugging/dbg_checkbox.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Debugging/dbg_section_delete.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="dbg_button">
+<span>dbg_button</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">dbg_button</span></h1>
+<p>This function creates a button control within the current debug section. Clicking the button executes a <span data-keyref="Type_Function"><a target="_blank" href="../../GML_Overview/Script_Functions.htm">Function</a></span>.</p>
+<p>The current debug section is the one last created using <span class="inline3_func"><a href="dbg_section.htm">dbg_section</a></span>.</p>
+<div data-conref="../../../assets/snippets/Note_Debug_Control_Single_Column.hts">
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> This control takes up a single column and can be shown on the same line with another single-column control using <span class="inline3_func"><a href="dbg_same_line.htm">dbg_same_line</a></span>.</p>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">dbg_button</span>(label, ref[, width, height]);</p>
+<p> </p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>label</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The text label to show next to the button</td>
+</tr>
+<tr>
+<td>ref</td>
+<td><span data-keyref="Type_DbgRef"><a target="_blank" href="../Variable_Functions/ref_create.htm">Reference</a></span> or <span data-keyref="Type_Function_Script"><a target="_blank" href="../../GML_Overview/Script_Functions.htm">Script Function</a></span> or <span data-keyref="Type_Function"><a target="_blank" href="../../GML_Overview/Script_Functions.htm">Function</a></span></td>
+<td>A <span data-keyref="Type_Function"><a target="_blank" href="../../GML_Overview/Script_Functions.htm">Function</a></span> or <span data-keyref="Type_Function_Script"><a target="_blank" href="../../GML_Overview/Script_Functions.htm">Script Function</a></span> or a reference to one (created with <span class="inline3_func"><a href="../Variable_Functions/ref_create.htm">ref_create</a></span>)</td>
+</tr>
+<tr>
+<td>width</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td><span data-conref="../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> The width of the button in pixels</td>
+</tr>
+<tr>
+<td>height</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td><span data-conref="../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> The height of the button in pixels</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example 1: Basic Use</h4>
+<p class="code_heading">Create Event</p>
+<p class="code">my_method = function()<br/>
+{<br/>
+    show_debug_message(&quot;Clicked the button!&quot;<br/>
+};<br/>
+<span data-field="title" data-format="default">dbg_button</span>(&quot;Click me!&quot;, my_method);
+</p>
+<p>The above code creates a button control in an <a href="../Asset_Management/Objects/Objects.htm">object</a>&#39;s Create event using <span class="inline3_func"><span data-field="title" data-format="default">dbg_button</span></span>. Since no calls are made to <span class="inline3_func"><a href="dbg_view.htm">dbg_view</a></span> or <span class="inline3_func"><a href="dbg_section.htm">dbg_section</a></span>, the button is added to a new debug section named <span data-keyref="DebugSection_Name_Default">&quot;Default&quot;</span> in a new debug view named <span data-keyref="DebugView_Name_Default">&quot;Default&quot;</span>. Clicking the button calls a function that shows a debug message using <span class="inline3_func"><a href="show_debug_message.htm">show_debug_message</a></span>.</p>
+<p> </p>
+<h4>Example 2: Extended Example</h4>
+<p class="code_heading">Script Asset</p>
+<p class="code">/// Script Asset<br/>
+<br/>
+function script_function()<br/>
+{<br/>
+    show_message(&quot;Called the script function!&quot;);<br/>
+}
+</p>
+<p class="code_heading">Create Event</p>
+<p class="code">my_method = function()<br/>
+{<br/>
+    show_message(&quot;Called the method!&quot;);<br/>
+}<br/>
+<br/>
+ref_to_method = ref_create(self, &quot;my_method&quot;);<br/>
+ref_to_script_function_global = ref_create(global, &quot;script_function&quot;);<br/>
+func = script_function;<br/>
+ref_to_script_function = ref_create(self, &quot;func&quot;);<br/>
+<br/>
+dbg_section(&quot;Function Calls&quot;);<br/>
+dbg_button(&quot;Call the Script Function&quot;, script_function, 400);<br/>
+dbg_button(&quot;Call the Script Function through the Reference&quot;, ref_to_script_function, 400);<br/>
+dbg_button(&quot;Call the Script Function through the Reference (Global)&quot;, ref_to_script_function_global, 400);<br/>
+dbg_button(&quot;Call the Method&quot;, my_method, 400);<br/>
+dbg_button(&quot;Call the Method through the Reference&quot;, ref_to_method, 400);<br/>
+dbg_section(&quot;Game&quot;);<br/>
+dbg_button(&quot;End the Game&quot;, game_end);
+</p>
+<p>The code example above shows a variety of ways to add button controls that execute functions to the debug overlay.</p>
+<p>First, a script function is defined in a script asset as well as a method in an object&#39;s Create event. Then, also in the Create event, various references to the script function and to the method are created. Note that in case of <span class="inline2">ref_to_script_function</span>, you can change the function to be executed by simply assigning a new value to the instance variable <span class="inline2">func</span>. After that, two sections are added to the debug overlay. Several buttons are added to the first section, where each of them calls the script function or the method through a different path. One more button is added to the second section. Clicking this button executes the built-in function <span class="inline3_func"><a href="../General_Game_Control/game_end.htm">game_end</a></span>, which can be called because it takes no (mandatory) arguments.</p>
+<p>When the code has executed, <a href="The_Debug_Overlay.htm">The Debug Overlay</a> is shown as any call to the <span class="inline2">dbg_*</span> functions will bring up the overlay.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="The_Debug_Overlay.htm">The Debug Overlay</a></div>
+<div>Next: <a href="dbg_checkbox.htm">dbg_checkbox</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5eb69a664cc8',t:'MTcyNjk0NTk3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

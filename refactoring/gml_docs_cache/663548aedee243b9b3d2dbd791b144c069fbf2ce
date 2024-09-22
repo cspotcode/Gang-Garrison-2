@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.24.0_9";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>weak_ref_any_alive</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../assets/css/default.css" type="text/css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for weak_ref_any_alive" />
+<meta name="rh-index-keywords" content="weak_ref_any_alive" />
+<meta name="search-keywords" content="weak_ref_any_alive" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Steam/Steam.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Garbage_Collection/weak_ref_alive.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="weak_ref_any_alive">
+<span>weak_ref_any_alive</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">weak_ref_any_alive</span></h1>
+<p>With this function you can check the <a class="tooltip" title="A weak reference is a reference that does not protect the referenced object from collection by a garbage collector, and so can be used to check if a struct is still &quot;alive&quot; (referenced) or not somewhere in the game.">weak reference</a> to various <a href="../../GML_Overview/Structs.htm">structs</a> to see if it they are still &quot;alive&quot; or not. You supply an array of weak references to check (each weak reference should have been created using the function <span class="inline3_func"><a href="weak_ref_create.htm">weak_ref_create</a></span>), and the function will return <span class="inline2">true</span> if <em><strong>any </strong></em>of the structs are still being referenced somewhere or <span class="inline2">false</span> if they are not and have been garbage collected. Note that if you supply an array where any of the values are not a weak references, the function will return <span class="inline2">undefined</span>.</p>
+<p>Note that the function also takes two optional arguments, where the first permits you to supply an initial index into the array to check from, as well as an argument to set the number of positions (length) from that index to check. If specified, only the array indices within those parameters will be checked.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">weak_ref_any_alive</span>(array, [index], [length])</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>array</td>
+<td><span data-keyref="Type_Array"><a target="_blank" href="../../GML_Overview/Arrays.htm">Array</a></span> of <span data-keyref="Type_Struct_WeakRef"><a target="_blank" href="weak_ref_create.htm">Struct Weak Reference</a></span>s</td>
+<td>Array containing weak references to the structs that you want to check.</td>
+</tr>
+<tr>
+<td>index</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td><span data-conref="../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> The index into the array to start checking from</td>
+</tr>
+<tr>
+<td>length</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td><span data-conref="../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> The number of positions, starting from the given index, to check for</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Bool"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Boolean</a></span> (or undefined)</p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if <span data-field="title" data-format="default">weak_ref_any_alive</span>(inventory_ref_array)<br/>
+{<br/>
+    instance_destroy(obj_Inventory_Control);<br/>
+}</p>
+<p>The above code checks an array of weak references and if any are still alive then an instance is destroyed.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Garbage_Collection.htm">Garbage Collection</a></div>
+<div style="float:right">Next: <a href="gc_collect.htm">gc_collect</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5ad30c893bab',t:'MTcyNjk0NTgyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

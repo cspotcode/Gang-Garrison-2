@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.22.0_31";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>clipboard_set_text</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../assets/css/default.css" type="text/css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for clipboard_set_text" />
+<meta name="rh-index-keywords" content="clipboard_set_text" />
+<meta name="search-keywords" content="clipboard_set_text" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/OS_And_Compiler/external_define.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Strings/clipboard_get_text.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="clipboard_set_text">
+<span>clipboard_set_text</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>clipboard_set_text</h1>
+<p>This function will set the clipboard to hold the defined string. You can set it to an empty string <span class="inline2">&quot;&quot;</span> to effectively clear the clipboard of text.<b></b></p>
+<div data-conref="../../../assets/snippets/Note_clipboard_support.hts">
+<p class="note"><span class="note">NOTE</span> This function is only valid on the Windows, Android, MacOS, iOS, HTML5 and Opera GX targets.<br/>
+<br/>
+On HTML5, clipboards are <a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard#browser_compatibility">not supported on Firefox</a> without the use of an extension, and are not supported on Internet Explorer at all.<br/>
+<br/>
+Additionally, clipboard functionality may be affected by browser permissions and the user may need to allow clipboard permissions when prompted, otherwise the clipboard may not function.
+</p>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">clipboard_set_text(string);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>string</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The text (as a string) to set the clipboard to hold.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (clipboard_has_text())<br/>
+{<br/>
+    str = clipboard_get_text();<br/>
+    clipboard_set_text(&quot;&quot;);<br/>
+}</p>
+<p>The above code checks the clipboard for text and if it contains any, it is read as a string into the variable &quot;str&quot;. Finally the clipboard is cleared by setting it to an empty string.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="../OS_And_Compiler/OS_And_Compiler.htm">OS And Compiler</a></div>
+<div style="float:right">Next: <a href="../OS_And_Compiler/external_define.htm">external_define</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5d9a4e11903b',t:'MTcyNjk0NTkzNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.2.0_7";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>array_pop</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../assets/css/default.css" type="text/css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page explaining the function array_pop" />
+<meta name="rh-index-keywords" content="array_pop" />
+<meta name="search-keywords" content="array_pop" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Variable_Functions/array_shift.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Variable_Functions/array_push.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="array_pop">
+<span>array_pop</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">array_pop</span></h1>
+<p>This function will remove the last element in the given array, and return its value. If the array is empty, <span class="inline2">undefined</span> is returned.</p>
+<p>The function works identically to <span class="inline3_func"><a href="array_shift.htm">array_shift</a></span>, but removes and returns the <i>last </i>element instead of the <i>first </i>one.</p>
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> To only read the last element in the array without removing it, use <span class="inline3_func"><a href="array_last.htm">array_last</a></span>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">array_pop</span>(array);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>array</td>
+<td><span data-keyref="Type_Array"><a target="_blank" href="../../GML_Overview/Arrays.htm">Array</a></span></td>
+<td>The array to remove the last value from.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Any"><a target="_blank" href="../../GML_Overview/Data_Types.htm#variable">Any</a></span> or <span data-keyref="Type_Undefined"><a target="_blank" href="../../GML_Overview/Data_Types.htm">undefined</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var _lastscore = <span data-field="title" data-format="default">array_pop</span>(score_array);<br/>
+draw_text(32, 32, &quot;Last Score = &quot; + string(_lastscore));</p>
+<p>The above code will pop the last value from the given array, and then draw it along with some text to the screen. The retrieved entry is also removed from the score array.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Array_Functions.htm">Array Functions</a></div>
+<div style="float:right">Next: <a href="array_shift.htm">array_shift</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c591e4bbd3bab',t:'MTcyNjk0NTc1MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

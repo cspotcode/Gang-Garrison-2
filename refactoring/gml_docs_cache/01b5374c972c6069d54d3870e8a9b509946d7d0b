@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.6.6.0_13";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>draw_text_transformed_colour</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for draw_text_transformed_colour" />
+<meta name="rh-index-keywords" content="draw_text_transformed_colour,draw_text_transformed_color" />
+<meta name="search-keywords" content="draw_text_transformed_colour,draw_text_transformed_color" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Drawing/Text/draw_text_ext_transformed_colour.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Drawing/Text/draw_text_ext_transformed.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="draw_text_transformed_colour">
+<span>draw_text_transformed_colour</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>draw_text_transformed_colour</h1>
+<p>This function is a combination of the base <a href="draw_text.htm"><span class="inline">draw_text()</span></a> function with the <a href="draw_text_transformed.htm"><span class="inline">draw_text_transformed()</span></a> and <a href="draw_text_colour.htm"><span class="inline">draw_text_colour()</span></a> functions, permitting you to scale and rotate text as well as colour it with a gradient fill and change its alpha value, ignoring the base alpha and colour settings for drawing.</p>
+<p class="note"><b><span class="note">NOTE</span> </b>Gradient blending is not available for the HTML5 target unless WebGL is enabled, although you can still set the blending colours and it will blend the font with the first given colour. However all blending in this way creates a duplicate
+font which is then stored in the cache and used when required, which is far from optimal and if you use multiple colour changes it will slow down your games performance. You can set the font cache size to try and limit this should it be necessary
+using the function <a href="../../Asset_Management/Fonts/font_set_cache_size.htm"><span class="inline">font_set_cache_size()</span></a>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">draw_text_transformed_colour(x, y, string, xscale, yscale, angle, c1, c2, c3, c4, alpha);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th><th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>x</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The x coordinate of the drawn string.</td>
+</tr>
+<tr>
+<td>y</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The y coordinate of the drawn string.</td>
+</tr>
+<tr>
+<td>string</td><td><span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The string to draw.</td>
+</tr>
+<tr>
+<td>xscale</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The horizontal scale.</td>
+</tr>
+<tr>
+<td>yscale</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The vertical scale.</td>
+</tr>
+<tr>
+<td>angle</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The angle of the text.</td>
+</tr>
+<tr>
+<td>c1</td><td><span data-keyref="Type_Constant_Colour"><a target="_blank" href="../Colour_And_Alpha/Colour_And_Alpha.htm">Colour</a></span></td>
+<td>The colour for the top left of the drawn text.</td>
+</tr>
+<tr>
+<td>c2</td><td><span data-keyref="Type_Constant_Colour"><a target="_blank" href="../Colour_And_Alpha/Colour_And_Alpha.htm">Colour</a></span></td>
+<td>The colour for the top right of the drawn text.</td>
+</tr>
+<tr>
+<td>c3</td><td><span data-keyref="Type_Constant_Colour"><a target="_blank" href="../Colour_And_Alpha/Colour_And_Alpha.htm">Colour</a></span></td>
+<td>The colour for the bottom right of the drawn text.</td>
+</tr>
+<tr>
+<td>c4</td><td><span data-keyref="Type_Constant_Colour"><a target="_blank" href="../Colour_And_Alpha/Colour_And_Alpha.htm">Colour</a></span></td>
+<td>The colour for the bottom left of the drawn text.</td>
+</tr>
+<tr>
+<td>alpha</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The alpha for the text.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">draw_set_halign(fa_center);<br/> draw_set_valign(fa_middle);
+<br/> image_angle += 1;<br/> draw_text_transformed_colour(room_width / 2, room_height / 2, keyboard_string, 2, 2, image_angle, c_red, c_red, c_yellow, c_yellow, 0.5);</p>
+<p>The above code will draw the given text in the middle of the room, spinning round and scaled to twice its original size, with a colour gradient going from yellow to red as well as an alpha of 0.5.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Text.htm">Text</a></div>
+<div style="float:right">Next: <a href="draw_text_ext_transformed_colour.htm">draw_text_ext_transformed_colour</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c597cefd83bab',t:'MTcyNjk0NTc2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

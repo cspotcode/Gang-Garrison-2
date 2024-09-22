@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.3.8.0_16";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>shader_enable_corner_id</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page outlining the function shader_enable_corner_id" />
+<meta name="rh-index-keywords" content="shader_enable_corner_id" />
+<meta name="search-keywords" content="shader_enable_corner_id" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Shaders/Shader_Constants.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Shaders/shader_current.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="shader_enable_corner_id">
+<span>shader_enable_corner_id</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">shader_enable_corner_id</span></h1>
+<p>This function enables the use of corner IDs in shaders.</p>
+<p>It sets a global state for all shaders being used where, when enabled, the shader &quot;steals&quot; 2 bits from the input colour values; one from the lowest bit of the red colour value, and one from the lowest bit of the blue colour value. These values can then be recovered in the shader to work out which vertex you are dealing with (i.e. which corner).</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> This will not work when using <a href="../../Drawing/Primitives/Primitives_And_Vertex_Formats.htm">vertex buffers and primitives</a> as the colour data for each vertex is handled by the user.</p>
+<p>The lowest bit of the <em>blue</em> component stores the <em>most significant bit</em>, the lowest bit of the <em>red</em> component stores the <em>least significant bit</em>. You can calculate the corner ID in a vertex shader by doing this:</p>
+<pre data-stringify-type="pre">vec2 rem = mod(in_Colour.rb * 255., 2.);
+int corner_id = int(dot(vec2(1., 2.), rem));</pre>
+<p>The following table lists the possible values and their corresponding corner position: </p>
+<table id="shader_corner_id" style="caption-side: top">
+<caption id>Shader Corner ID</caption>
+<colgroup>
+<col style="width:25%" />
+<col style="width:25%" />
+<col style="width:25%" />
+<col style="width:25%" />
+</colgroup>
+<tbody>
+<tr>
+<th>Red Lowest Bit</th>
+<th>Blue Lowest Bit</th>
+<th>Corner ID</th>
+<th>Position</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>Top-left</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>Top-right</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>Bottom-right</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>3</td>
+<td>Bottom-left</td>
+</tr>
+</tbody>
+</table>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> The corner IDs are numbered consecutively going clockwise, starting at 0 for the top-left corner.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">shader_enable_corner_id</span>(enable);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>enable</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td>Enable (<span class="inline">true</span>) or disable (<span class="inline">false</span>) this function.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code"><span data-field="title" data-format="default">shader_enable_corner_id</span>(true);</p>
+<p>The above code will enable the use of colour bits for the corner ID for all shaders.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Shaders.htm">Shaders</a></div>
+<div style="float:right">Next: <a href="shader_get_name.htm">shader_get_name</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5ef80e904cc8',t:'MTcyNjk0NTk5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

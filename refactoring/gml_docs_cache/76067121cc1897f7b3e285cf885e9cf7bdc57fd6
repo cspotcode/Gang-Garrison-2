@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.19.0_25";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>buffer_save_async</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../assets/css/default.css" type="text/css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for buffer_save_async" />
+<meta name="rh-index-keywords" content="buffer_save_async" />
+<meta name="search-keywords" content="buffer_save_async" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Buffers/buffer_load.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Buffers/buffer_save_ext.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="buffer_save_async">
+<span>buffer_save_async</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">buffer_save_async</span></h1>
+<p>This function saves part of the contents of a buffer to a file asynchronously, ready to be read back into memory using any of the <span class="inline3_func">buffer_load_*</span> functions. <span data-conref="../../../assets/snippets/This_Saves_To_GameSaveID.hts">This will save to the <span class="inline2"><a href="../General_Game_Control/game_save_id.htm">game_save_id</a></span> location when a relative path is specified.</span></p>
+<p>The &quot;offset&quot; defines the start position within the buffer for saving (in bytes), and the &quot;size&quot; is the size of the buffer area to be saved from that offset onwards (also in bytes). This function works asynchronously, and so the game will continue running while being saved.</p>
+<p>All files saved using this function will be placed in a &quot;default&quot; folder (unless you are using an <a href="buffer_async_group_begin.htm">async group</a>, then the name of the group replaces &quot;default&quot;). This folder does <i>not</i> need to be included in the filename as it is added automatically by <span data-keyref="GameMaker Name">GameMaker</span>. For example the filename path &quot;<span class="inline">Data\Player_Save.sav</span>&quot; would actually be saved to &quot;<span class="inline">default\Data\Player_Save.sav</span>&quot;. When you load the file using the function <span class="inline3_func"><a href="buffer_load_async.htm">buffer_load_async</a></span>, you do not need to supply the &quot;default&quot; part of the path either (but any other file function <i>will</i> require it, except on consoles Xbox, PlayStation and Nintendo Switch).</p>
+<p class="note"><b><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span></b> On HTML5 &quot;default/&quot; is not added automatically and you may have to account for this in your code.</p>
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> &quot;default/&quot; is not added when saving a buffer to an absolute path by disabling the system sandbox on Desktop platforms.</p>
+<p>The function will return a unique ID value and trigger an <a href="../../../The_Asset_Editors/Object_Properties/Async_Events/Save_Load.htm">Asynchronous Save/Load Event</a> where you can use the returned ID to check the <span class="inline2"><a href="../../GML_Overview/Variables/Builtin_Global_Variables/async_load.htm">async_load</a></span>&#39;s ID value, as shown in the extended example below. The <span class="inline2"><a href="../../GML_Overview/Variables/Builtin_Global_Variables/async_load.htm">async_load</a></span>
+<font face="menlo, consolas, monospace"><span style="font-size: 17px;"> </span></font>map in the event will have the following two key/value pairs:
+</p>
+<ul>
+<li><b>&quot;id&quot;: </b>the ID of the async function as returned by the save function.</li>
+<li><b>&quot;status&quot;: </b>will return <span class="inline2">true</span> if the data was saved correctly, and <span class="inline2">false</span> otherwise.</li>
+</ul>
+<p>Note that you can save out multiple buffers in one by calling this function multiple times between calls to <span class="inline3_func"><a href="buffer_async_group_begin.htm">buffer_async_group_begin</a></span> and <span class="inline3_func"><a href="buffer_async_group_end.htm">buffer_async_group_end</a></span>
+<font face="menlo, consolas, monospace"><span style="font-size: 17px;"> </span></font>(see those functions for further information on this).
+</p>
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> On HTML5 the returned results are saved as base64 encoded strings when saved to a file.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">buffer_save_async</span>(buffer, filename, offset, size);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>buffer</td>
+<td><span data-keyref="Type_ID_Buffer"><a target="_blank" href="buffer_create.htm">Buffer</a></span></td>
+<td>The buffer to save.</td>
+</tr>
+<tr>
+<td>filename</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The name of the file to save as.</td>
+</tr>
+<tr>
+<td>offset</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The offset within the buffer to save from (in bytes).</td>
+</tr>
+<tr>
+<td>size</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The size of the buffer area to save (in bytes).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_ID_Async_Event"><a target="_blank" href="../Asynchronous_Functions/Asynchronous_Functions.htm">Async Request ID</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p>The <span class="inline3_func"><span data-field="title" data-format="default">buffer_save_async</span></span> function can be called from any event, and since it is asynchronous the callback can be almost instantaneous or could take several seconds. Calling the function is simple and would look something like this:</p>
+<p class="code">saveid = buffer_save_async(buff, &quot;Player_Save.sav&quot;, 0, 16384);</p>
+<p>The above code saves the contents of the buffer <span class="inline2">buff</span> to the given save file, storing the ID of the function call in a variable <span class="inline2">saveid</span>. When the save is complete, the asynchronous <a href="../../../The_Asset_Editors/Object_Properties/Async_Events/Save_Load.htm">Save / Load</a> event will be triggered and you can parse the <span class="inline2"><a href="../../GML_Overview/Variables/Builtin_Global_Variables/async_load.htm">async_load</a></span> map for the correct ID of the function, like this:</p>
+<p class="code">if (ds_map_find_value(async_load, &quot;id&quot;) == saveid)<br/>
+{<br/>
+    if (ds_map_find_value(async_load, &quot;status&quot;) == false)<br/>
+    {<br/>
+        show_debug_message(&quot;Save failed!&quot;);<br/>
+    }<br/>
+}</p>
+<p>The above code will first check the ID of the DS map that has been created, then check the status of the callback, posting a debug message if there have been any issues.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Buffers.htm">Buffers</a></div>
+<div style="float:right">Next: <a href="buffer_load.htm">buffer_load</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5d8b9c74903b',t:'MTcyNjk0NTkzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

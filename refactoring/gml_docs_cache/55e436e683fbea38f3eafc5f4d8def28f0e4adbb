@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../../..";
+    gCommonRootRelPath = "../../../../..";
+    gTopicId = "8.2.2.3.3.3.0_9";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>image_index</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page explaining the variable image_index" />
+<meta name="rh-index-keywords" content="image_index" />
+<meta name="search-keywords" content="image_index" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Sprites/Sprite_Instance_Variables/image_number.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Sprites/Sprite_Instance_Variables/image_blend.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="image_index">
+<span>image_index</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>image_index</h1>
+<p>A sprite is made up of one or more <i>sub-images</i> which can make the sprite appear animated as they switch from one to the other, or can they can be switched between in code to give different &quot;states&quot;, much like a button has in windows. If the sprite is animated, then you can get the current frame of the animation by checking the <span class="inline">image_index</span> variable, or if you want to change the state of a static sprite, you can select a new sub-image by setting this variable to the desired sub-image of the sprite.</p>
+<h3>Usage Notes</h3>
+<ul class="colour">
+<li>For changes in this variable to be visible, the instance should have either <i>no</i> draw event (and so <span data-keyref="GameMaker Name">GameMaker</span> will default draw the sprite) or be drawn using one of the drawing functions like <a href="../../../Drawing/Sprites_And_Tiles/draw_self.htm"><span class="inline">draw_self()</span></a> or <a href="../../../Drawing/Sprites_And_Tiles/draw_sprite_ext.htm"><span class="inline">draw_sprite_ext()</span></a> (by supplying the image_index into the appropriate argument).</li>
+<li>Setting this variable directly to a frame will <em>not</em> trigger any Broadcast Messages that may be present on that frame.</li>
+<li>While using skeletal animation sprites, you can still get and set the <span class="inline">image_index</span> values - see the function <a href="../Skeletal_Animation/Animation/skeleton_animation_get_duration.htm"><span class="inline">skeleton_animation_get_duration()</span></a> for examples of how to do this.</li>
+<li>A stretched frame will be returned as a fraction of one number. For example, if in the <a href="../../../../../The_Asset_Editors/Sprites.htm">Sprite Editor</a> you stretch <strong>frame 1</strong> to last 4 frames, instead of those 4 frames returning the values 1, 2, 3, 4, they will instead return 1.0, 1.25, 1.5, and 1.75.
+<ul>
+<li>This means that if you add 1 to <span class="inline">image_index</span>, it will skip frames the same way regardless of their stretched length.</li>
+</ul>
+</li>
+</ul>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">image_index;</p>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span> (single precision floating point value)</p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (image_speed &gt; 0)<br/>
+{<br/>
+    if (image_index &gt;= image_number - 1) instance_destroy();<br/>
+}</p>
+<p>The above code checks to see if the sprite is animating, and if it is then it checks to see if the current image_index is at the last frame and in that case destroys the instance.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Sprite_Instance_Variables.htm">Sprite Instance Variables</a></div>
+<div style="float:right">Next: <a href="image_number.htm">image_number</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59d36b673bab',t:'MTcyNjk0NTc3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

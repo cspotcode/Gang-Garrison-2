@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.3.12.1_14";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>object_set_solid</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page outlining the function object_set_solid" />
+<meta name="rh-index-keywords" content="object_set_solid" />
+<meta name="search-keywords" content="object_set_solid" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Objects/object_set_sprite.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Objects/object_set_persistent.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="object_set_solid">
+<span>object_set_solid</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>object_set_solid</h1>
+<p>With this function you can flag a specific object as being solid or not (for more information on the &quot;solid&quot; flag see the section on the <a href="../../../../The_Asset_Editors/Objects.htm">Object Editor</a>). This means that all instances of this object that are created <i>after solid has been changed</i> will be created with this new state, while instances that are already in the room may not be affected.</p>
+<p>Please note that this is not an instance function! You can set the solid flag of individual instances using the <span class="inline"><a href="../Instances/Instance_Variables/solid.htm">solid</a></span> variable and so have ten instances all flagged as solid even though the object in question has the flag set to false in the IDE, and even if you change the solid flag of the object to true using this function, all instances that currently in the room will remain as they were, and only instances created after calling the function will start with solid flagged as true.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">object_set_solid( index, solid );</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>index</td>
+<td><span data-keyref="Type_Asset_Object"><a target="_blank" href="../../../../The_Asset_Editors/Objects.htm">Object Asset</a></span></td>
+<td>The index of the object to change.</td>
+</tr>
+<tr>
+<td>solid</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td>The new solidity of the object (<span class="inline">true</span>=solid, <span class="inline">false</span>=not solid).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (!object_get_solid(obj_Block)) <br/>
+{<br/>
+    object_set_solid(obj_Block, true);<br/>
+}</p>
+<p>The above code checks the solid flag of the object &quot;obj_Block&quot; and if it is false then it is changed to be flagged as true.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Objects.htm">Objects</a></div>
+<div style="float:right">Next: <a href="object_set_sprite.htm">object_set_sprite</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5e14ddeb903b',t:'MTcyNjk0NTk1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

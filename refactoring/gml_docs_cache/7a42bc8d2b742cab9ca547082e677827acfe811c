@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.6.2.0_49";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>gpu_set_stencil_ref</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../../assets/css/default.css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="gpu_set_stencil_ref" />
+<meta name="search-keywords" content="gpu_set_stencil_ref" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+</head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="gpu_set_stencil_ref">
+<span>gpu_set_stencil_ref</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">gpu_set_stencil_ref</span></h1>
+<p>This <span>function sets the stencil test reference value used for draw functions.</span></p>
+<p>The stencil ref value is compared to the stencil value as follows: </p>
+<p class="code"><span data-keyref="Const_Stencil_Equation">ref cmp_func stencil</span></p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> The comparison function can be set with <span class="inline3_func"><a href="gpu_set_stencil_func.htm">gpu_set_stencil_func</a></span>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">gpu_set_stencil_ref</span>(ref);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>ref</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The<span> stencil test reference value, clamped within range 0 to 255 (inclusive)</span></td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<div data-conref="../../../../assets/snippets/Example_Stencil_Drawing.hts">
+<p class="code_heading">Draw Event</p>
+<p class="code">gpu_set_stencil_enable(true);<br/>
+draw_clear_stencil(0);<br/>
+gpu_set_stencil_func(cmpfunc_greaterequal);<br/>
+gpu_set_stencil_pass(stencilop_replace);<br/>
+gpu_set_stencil_ref(128);<br/>
+draw_circle_color(100, 100, 50, c_red, c_red, false);<br/>
+gpu_set_stencil_ref(64);<br/>
+draw_rectangle_color(100, 100, 179, 170, c_blue, c_blue, c_blue, c_blue, false);<br/>
+gpu_set_stencil_enable(false);</p>
+<p>The code example above shows how to draw shapes with the stencil buffer enabled.</p>
+<p>First the stencil test is enabled with a call to <span class="inline3_func"><a href="gpu_set_stencil_enable.htm">gpu_set_stencil_enable</a></span> and the stencil buffer is cleared to 0 using <span class="inline3_func"><a href="../draw_clear_stencil.htm">draw_clear_stencil</a></span>. After that, the stencil comparison function is set to <span class="inline2">cmpfunc_greaterequal</span> using <span class="inline3_func"><a href="gpu_set_stencil_func.htm">gpu_set_stencil_func</a></span> and the operation to perform when the stencil test passes set to <span class="inline2">stencilop_replace</span> with a call to <span class="inline3_func"><a href="gpu_set_stencil_pass.htm">gpu_set_stencil_pass</a></span> (the operation to perform when the stencil test fails remains at the default <span class="inline2">stencilop_keep</span>).</p>
+<p>Next, the stencil reference value is set to 128 using <span class="inline3_func"><a href="gpu_set_stencil_ref.htm">gpu_set_stencil_ref</a></span> and a filled red circle is drawn. The stencil test passes for every pixel covered by the circle (because the comparison that takes place is <span class="inline2">128 &gt;= 0</span>) and the value in the stencil buffer is replaced. A filled blue rectangle is then drawn with the stencil ref value set to 64 instead. For all pixels of the rectangle that overlap with the circle&#39;s pixels the comparison will be <span class="inline2">64 &gt;= 128</span>. These pixels don&#39;t pass the stencil test, the current stencil value is kept and the pixel isn&#39;t drawn. For all pixels of the rectangle that <em>don&#39;t</em> overlap with the circle&#39;s pixels the comparison will be <span class="inline2">64 &gt;= 0</span>. These pixels pass the stencil test, the current stencil value is replaced and the pixel is drawn.</p>
+<p>Finally, the stencil buffer is disabled again with another call to <span class="inline3_func"><a href="gpu_set_stencil_enable.htm">gpu_set_stencil_enable</a></span>.</p>
+</div>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="GPU_Control.htm">GPU Control</a></div>
+<div>Next: <a href="gpu_set_stencil_pass.htm">gpu_set_stencil_pass</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59ca2a9c3bab',t:'MTcyNjk0NTc3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

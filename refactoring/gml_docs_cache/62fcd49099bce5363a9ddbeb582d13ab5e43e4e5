@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.6.6.0_4";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>draw_get_font</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for draw_get_font" />
+<meta name="rh-index-keywords" content="draw_get_font" />
+<meta name="search-keywords" content="draw_get_font" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Drawing/Text/draw_get_halign.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Drawing/Text/draw_set_valign.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="draw_get_font">
+<span>draw_get_font</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>draw_get_font</h1>
+<p>This function will get the font currently assigned for drawing text. The function will return -1 if no font is set, or the ID value (a positive integer) for the font asset assigned.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">draw_get_font();</p>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Asset_Font"><a target="_blank" href="../../../../The_Asset_Editors/Fonts.htm">Font Asset</a></span> or <span data-keyref="Type_Real_Not_Found">-1</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var _cur_font = draw_get_font();<br/>
+var _y_offset = 0;<br/>
+<br/>
+switch (_cur_font)<br/>
+{<br/>
+    case ft_small:<br/>
+        _y_offset = 10;<br/>
+    break;<br/>
+<br/>
+    case ft_medium:<br/>
+        _y_offset = 22;<br/>
+    break;<br/>
+<br/>
+    case ft_big:<br/>
+        _y_offset = 34;<br/>
+    break;<br/>
+<br/>
+    default:<br/>
+        _y_offset = 8;<br/>
+}<br/>
+<br/>
+draw_text(room_width / 2, 200 + _y_offset, &quot;MENU&quot;);
+</p>
+<p>The above code gets the currently applied font and runs a switch statement on it, applying a different Y offset value depending on the font. It then uses that offset value while drawing some text.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Text.htm">Text</a></div>
+<div style="float:right">Next: <a href="draw_get_halign.htm">draw_get_halign</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c596a5e403bab',t:'MTcyNjk0NTc2My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.6.7.0_41";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>vertex_submit</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference for vertex_submit" />
+<meta name="rh-index-keywords" content="vertex_submit,pr_pointlist,pr_linelist,pr_linestrip,pr_trianglelist,pr_trianglestrip" />
+<meta name="search-keywords" content="vertex_submit,pr_pointlist,pr_linelist,pr_linestrip,pr_trianglelist,pr_trianglestrip" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Drawing/Primitives/vertex_submit_ext.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Drawing/Primitives/vertex_freeze.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="vertex_submit">
+<span>vertex_submit</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">vertex_submit</span></h1>
+<p>This function submits the contents of a vertex buffer to the graphics pipeline for use with a shader.</p>
+<p>You supply the vertex buffer, the base primitive type (see the constants below) and the texture to be used. The base primitive type is only used for assigning the order in which the vertices that you stored in the buffer are drawn and connected, but the actual data used for each of the vertices will be that which you defined when creating the vertex buffer.</p>
+<div data-conref="../../../../assets/snippets/Note_Warning_Surface_Must_Exist.hts">
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_warning.hts"><span class="warning">WARNING</span></span> When using a surface as the texture (returned by <span class="inline3_func"><a href="../Surfaces/surface_get_texture.htm">surface_get_texture</a></span>), you should make sure that the surface itself exists (<span class="inline3_func"><a href="../Surfaces/surface_exists.htm">surface_exists</a></span>).</p>
+</div>
+<h3>Usage Notes</h3>
+<ul class="colour">
+<li>This function can only be used in the <a href="../../../../The_Asset_Editors/Object_Properties/Draw_Events.htm">Draw Events</a>.</li>
+<li>The number of vertices in the vertex buffer must be in accordance with the primitive type you&#39;re using.</li>
+<li>You can use <span class="inline3_func"><a href="vertex_submit_ext.htm">vertex_submit_ext</a></span> instead to submit only a range of vertices in the vertex buffer.</li>
+<li>Triangle fans (<span class="inline2">pr_trianglefan</span>) are converted to <span class="inline2">pr_trianglelist</span> internally on platforms that don&#39;t support them when you call this function.</li>
+</ul>
+<p>For a visual example of the different base primitives available, see the image below: </p>
+<p><img alt="The different primitive types" class="center" src="../../../../assets/Images/Scripting_Reference/GML/Reference/Drawing/primitive_types.png" /></p>
+<div data-conref="../../../../assets/snippets/Primitive_Type_Constants.hts">
+<table style="caption-side: top">
+<caption><span data-keyref="Type_Constant_Draw_Primitive_Type"><a target="_blank" href="draw_primitive_begin.htm">Primitive Type Constant</a></span></caption>
+<colgroup>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Constant</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><span class="inline">pr_pointlist</span></td>
+<td>A point list - A point is drawn for every vertex.</td>
+</tr>
+<tr>
+<td><span class="inline">pr_linelist</span></td>
+<td>A line list - A line is drawn between the first and the second vertex, between the third and fourth vertex, etc.</td>
+</tr>
+<tr>
+<td><span class="inline">pr_linestrip</span></td>
+<td>A line strip - A line is drawn between the first and the second vertex, between the second and the third vertex, the third and the fourth vertex, etc.</td>
+</tr>
+<tr>
+<td><span class="inline">pr_trianglelist</span></td>
+<td>A triangle list - A triangle is drawn for the first, second and third vertex, then for the fourth, fifth and sixth vertex, etc.</td>
+</tr>
+<tr>
+<td><span class="inline">pr_trianglestrip</span></td>
+<td>A triangle strip - A triangle is drawn for the first, second and third vertex, then for the second, third and fourth vertex, etc.</td>
+</tr>
+<tr>
+<td><span class="inline">pr_trianglefan</span></td>
+<td>A triangle fan - Every two vertices connect to the first vertex to make a triangle.<br/>
+<br/>
+<span data-conref="../../../../assets/snippets/Tag_warning.hts"><span class="warning">WARNING</span></span> <span>This primitive type is not natively supported on some platforms and there could be a performance hit if you use it.</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">vertex_submit</span>(buffer, primitive, texture);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>buffer</td>
+<td><span data-keyref="Type_ID_Buffer_Vertex"><a target="_blank" href="vertex_create_buffer.htm">Vertex Buffer</a></span></td>
+<td>The vertex buffer to use.</td>
+</tr>
+<tr>
+<td>primitive</td>
+<td><span data-keyref="Type_Constant_Draw_Primitive_Type"><a target="_blank" href="draw_primitive_begin.htm">Primitive Type Constant</a></span></td>
+<td>The primitive base type.</td>
+</tr>
+<tr>
+<td>texture</td>
+<td><span data-keyref="Type_Pointer_Texture"><a target="_blank" href="../../Asset_Management/Sprites/Sprite_Information/sprite_get_texture.htm">Texture</a></span></td>
+<td>The texture to use (or <span class="inline2">-1</span> for no texture).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">shader_set(shader_prim);<br/>
+<span data-field="title" data-format="default">vertex_submit</span>(buff, pr_trianglelist, sprite_get_texture(sprite_index, 0));<br/>
+shader_reset();
+</p>
+<p>The above code submits the vertex buffer in the variable <span class="inline2">buff</span> for drawing with the shader <span class="inline2">shader_prim</span>, using a triangle list as the base primitive and the texture of the sprite for the instance running the code.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Primitives_And_Vertex_Formats.htm">Primitives And Vertex Formats</a></div>
+<div style="float:right">Next: <a href="vertex_submit_ext.htm">vertex_submit_ext</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5a66ef543bab',t:'MTcyNjk0NTgwMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.25.0_1";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>wallpaper_set_config</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../assets/css/default.css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Gurpreet S. Matharoo" />
+<meta name="topic-comment" content="Reference page for wallpaper_set_config" />
+<meta name="rh-index-keywords" content="wallpaper_set_config" />
+<meta name="search-keywords" content="wallpaper_set_config" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Live_Wallpapers/wallpaper_set_subscriptions.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Live_Wallpapers/Live_Wallpapers.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="wallpaper_set_config">
+<span>wallpaper_set_config</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">wallpaper_set_config</span></h1>
+<p>This function sends the configuration for your wallpaper to the companion app. It takes a &quot;settings&quot; array containing your options/sections, where each option/section is a <a href="../../GML_Overview/Structs.htm">struct</a>.</p>
+<h3>Settings Array</h3>
+<p>The array should have the following format: </p>
+<p class="code">array = <br/>
+[<br/>
+    {section_or_option},<br/>
+    {section_or_option},<br/>
+    {section_or_option}<br/>
+];</p>
+<p>Each entry in this array is either a <em>section</em> or an <em>option</em>.</p>
+<h3>Section Struct</h3>
+<p>A section struct requires the following format: </p>
+<p class="code">{<br/>
+    type: &quot;section&quot;,<br/>
+    name: &quot;unique_identifier&quot;,<br/>
+    label: &quot;Label for this section in the companion app&quot;,<br/>
+    children: [{section}, {option}, ...]<br/>
+}</p>
+<p><span>The <span class="inline2">children</span> property in a section struct is an <a href="../../GML_Overview/Arrays.htm">array.</a> Each entry in this array is either another section struct or an option struct.</span></p>
+<h3>Option Struct</h3>
+<p>An option struct requires the following format: </p>
+<p class="code">{<br/>
+    type: &quot;type_of_return_value&quot;,<br/>
+    name: &quot;unique_identifier&quot;,<br/>
+    label: &quot;Label for this section in the companion app&quot;<br/>
+}</p>
+<p>The following types are allowed for the type property: <span class="inline2">&quot;range&quot;</span>, <span class="inline2">&quot;boolean&quot;</span>, <span class="inline2">&quot;string&quot;</span>, <span class="inline2">&quot;string_multiline&quot;</span>, <span class="inline2">&quot;color&quot;</span> (or <span class="inline2">&quot;colour&quot;</span>), <span class="inline2">&quot;file&quot;</span> and <span class="inline2">&quot;folder&quot;</span>.</p>
+<p>Depending on the type, you must provide extra properties to the option struct: </p>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down1" href="#"><span data-open-text="true" data-skip-index="true">&quot;range&quot;</span><span data-close-text="true">&quot;range&quot;</span></a></h3>
+<div class="droptext" data-targetname="drop-down1">
+<p class="code">{<br/>
+    type: &quot;range&quot;,<br/>
+    value: &lt;a number, default value&gt;,<br/>
+    min: &lt;a number, minimum range value&gt;,<br/>
+    max: &lt;a number, maximum range value&gt;,<br/>
+    step: &lt;a number, distance between possible values&gt;<br/>
+}</p>
+</div>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down2" href="#"><span data-open-text="true" data-skip-index="true">&quot;boolean&quot;</span><span data-close-text="true">&quot;boolean&quot;</span></a></h3>
+<div class="droptext" data-targetname="drop-down2">
+<p class="code">{<br/>
+    type: &quot;boolean&quot;,<br/>
+    value: &lt;true or false, default value&gt;<br/>
+}</p>
+</div>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down3" href="#"><span data-open-text="true" data-skip-index="true">&quot;string&quot;</span><span data-close-text="true">&quot;string&quot;</span></a></h3>
+<div class="droptext" data-targetname="drop-down3">
+<p class="code">{<br/>
+    type: &quot;string&quot;,<br/>
+    value: &lt;a string, default value&gt;<br/>
+}</p>
+</div>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down4" href="#"><span data-open-text="true" data-skip-index="true">&quot;string_multiline&quot;</span><span data-close-text="true">&quot;string_multiline&quot;</span></a></h3>
+<div class="droptext" data-targetname="drop-down4">
+<p class="code">{<br/>
+    type: &quot;string_multiline&quot;,<br/>
+    value: &lt;a string that can have newlines, e.g. &quot;Line 1\nLine 2\nLine 3\nLine4&quot;&gt;<br/>
+}</p>
+</div>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down6" href="#"><span data-open-text="true" data-skip-index="true">&quot;color&quot; (or &quot;colour&quot;)</span><span data-close-text="true">&quot;color&quot; (or &quot;colour&quot;)</span></a></h3>
+<div class="droptext" data-targetname="drop-down6">
+<p class="code">{<br/>
+    type: &quot;colour&quot;,<br/>
+    value: &lt;a colour, default value&gt;<br/>
+}</p>
+</div>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down7" href="#"><span data-open-text="true" data-skip-index="true">&quot;file&quot;</span><span data-close-text="true">&quot;file&quot;</span></a></h3>
+<div class="droptext" data-targetname="drop-down7">
+<p class="code">{<br/>
+    type: &quot;file&quot;,<br/>
+    value: &lt;a string containing file path, e.g. &quot;C:\\Users\\MyUser\\Pictures\\MyPicture.png&quot;&gt;<br/>
+}</p>
+</div>
+<h3><a class="dropspot" data-rhwidget="DropSpot" data-target="drop-down8" href="#"><span data-open-text="true" data-skip-index="true">&quot;folder&quot;</span><span data-close-text="true">&quot;folder&quot;</span></a></h3>
+<div class="droptext" data-targetname="drop-down8">
+<p class="code">{<br/>
+    type: &quot;folder&quot;,<br/>
+    value: &lt;a string containing a folder path, e.g. &quot;C:\\Users\\MyUser\\Pictures\\&quot;&gt;<br/>
+}</p>
+</div>
+<p> </p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">wallpaper_set_config</span>(settings_array);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>settings_array</td>
+<td><span data-keyref="Type_Array"><a target="_blank" href="../../GML_Overview/Arrays.htm">Array</a></span></td>
+<td>An array containing section and option structs as detailed above</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var _config = <br/>
+[<br/>
+    {<br/>
+        type: &quot;section&quot;,<br/>
+        name: &quot;animation&quot;,<br/>
+        label: &quot;Animation&quot;,<br/>
+        children:<br/>
+        [<br/>
+            {<br/>
+                type: &quot;range&quot;,<br/>
+                name: &quot;speed&quot;,<br/>
+                label: &quot;Rotation speed&quot;,<br/>
+                value: 50,<br/>
+                min: 0,<br/>
+                max: 200,<br/>
+                step: 25<br/>
+            },<br/>
+            {<br/>
+                type: &quot;boolean&quot;,<br/>
+                name: &quot;clockwiseRotation&quot;,<br/>
+                label: &quot;Clockwise rotation&quot;,<br/>
+                value: false<br/>
+            },<br/>
+            {<br/>
+                type: &quot;boolean&quot;,<br/>
+                name: &quot;pause&quot;,<br/>
+                label: &quot;Pause animation&quot;,<br/>
+                value: true<br/>
+            }<br/>
+        ]<br/>
+    },<br/>
+    {<br/>
+        type: &quot;section&quot;,<br/>
+        name: &quot;colours&quot;,<br/>
+        label: &quot;Colours&quot;,<br/>
+        children:<br/>
+        [<br/>
+           {<br/>
+                type: &quot;colour&quot;,<br/>
+                name: &quot;blendColor&quot;,<br/>
+                label: &quot;Blend colour&quot;,<br/>
+                value: #FA1E4E<br/>
+            },<br/>
+            {<br/>
+                type: &quot;range&quot;,<br/>
+                name: &quot;blendAlpha&quot;,<br/>
+                label: &quot;Blend alpha&quot;,<br/>
+                value: 100<br/>
+            }<br/>
+        ]<br/>
+    }<br/>
+];<br/>
+<br/>
+<span data-field="title" data-format="default">wallpaper_set_config</span>(_config);
+</p>
+<p>The code above shows an example of the <span class="inline3_func"><span data-field="title" data-format="default">wallpaper_set_config</span></span> function with two sections. The first section contains three options (a range and two booleans) and the second section contains two options (a colour and a range).</p>
+<p>This example initialises the array first in a local variable, and passes that into the function call. You can skip the variable stuff and initialise the array in the function arguments directly if you wish to do so.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="Live_Wallpapers.htm">Live Wallpapers</a></div>
+<div>Next: <a href="wallpaper_set_subscriptions.htm">wallpaper_set_subscriptions</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5ad14aea3bab',t:'MTcyNjk0NTgyMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

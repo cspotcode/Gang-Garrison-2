@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.18.6.0_1";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>json_encode</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for json_encode" />
+<meta name="rh-index-keywords" content="json_encode" />
+<meta name="search-keywords" content="json_encode" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/File_Handling/Encoding_And_Hashing/json_decode.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/File_Handling/Encoding_And_Hashing/Encoding_And_Hashing.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="json_encode">
+<span>json_encode</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">json_encode</span></h1>
+<p>This function takes an existing <span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span> and encodes it as a JSON string. The JSON string can be used, e.g., as part of an <span class="inline3_func"><a href="../../Asynchronous_Functions/HTTP/http_post_string.htm">http_post_string</a></span> call or be written to a file, so the data can be stored externally.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_important.hts"><span class="important">IMPORTANT</span></span> This function - while still valid for DS maps - has been superseded by the function <span class="inline3_func"><a href="json_stringify.htm">json_stringify</a></span> and <a href="../../../GML_Overview/Structs.htm">structs</a>, and we recommend that you only use this function for legacy support.</p>
+<p>The DS map can contain the following: </p>
+<ul class="colour">
+<li>Nested <a href="../../Data_Structures/DS_Maps/DS_Maps.htm">DS Maps</a> and <a href="../../Data_Structures/DS_Lists/DS_Lists.htm">DS Lists</a> that should be marked correctly using the DS map <a href="../../Data_Structures/DS_Maps/DS_Maps.htm#func_ref_json">JSON</a> functions (e.g. <span class="inline3_func"><a href="../../Data_Structures/DS_Maps/ds_map_add_map.htm">ds_map_add_map</a></span>, <span class="inline3_func"><a href="../../Data_Structures/DS_Maps/ds_map_add_list.htm">ds_map_add_list</a></span>) and the DS list <a href="../../Data_Structures/DS_Lists/DS_Lists.htm#func_ref_json">JSON</a> functions (e.g. <span class="inline3_func"><a href="../../Data_Structures/DS_Lists/ds_list_mark_as_map.htm">ds_list_mark_as_map</a></span>, <span class="inline3_func"><a href="../../Data_Structures/DS_Lists/ds_list_mark_as_list.htm">ds_list_mark_as_list</a></span>) respectively.</li>
+<li>Nested <a href="../../../GML_Overview/Structs.htm">Structs</a> and <a href="../../../GML_Overview/Arrays.htm">Arrays</a> which are written as nested JSON objects and arrays respectively.</li>
+</ul>
+<h3>Usage Notes</h3>
+<ul class="colour">
+<li><span data-keyref="GameMaker Name">GameMaker</span> encodes certain values in the JSON as a string so they can be read back correctly later. See <a href="../../../../Additional_Information/Guide_To_Using_JSON.htm#data_conversions">Data Conversions</a> for an overview of these conversions.</li>
+</ul>
+<div data-conref="../../../../assets/snippets/Note_See_Guide_To_Using_JSON.hts">
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> See <a href="../../../../Additional_Information/Guide_To_Using_JSON.htm">Guide To Using JSON</a> for detailed information on how to work with JSON in <span data-keyref="GameMaker Name">GameMaker</span>.</p>
+</div>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">json_encode</span>(map, [prettify])</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>map</td>
+<td><span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span></td>
+<td>A DS map with the information to encode</td>
+</tr>
+<tr>
+<td>prettify</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td><span data-conref="../../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> Whether to prettify the output, i.e. insert indentation and line breaks for readability</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></p>
+<p> </p>
+<h4>Example 1: Basic Use</h4>
+<p class="code">var _hiscore_map, _json;<br/>
+_hiscore_map = ds_map_create();<br/>
+for (var i = 0; i &lt; 10; i ++;)<br/>
+{<br/>
+    ds_map_add(_hiscore_map, name[i], score[i]);<br/>
+}<br/>
+_json = json_encode(_hiscore_map);<br/>
+ds_map_destroy(_hiscore_map);<br/>
+<br/>
+post_request_id = http_post_string($&quot;http://www.angusgames.com/game?game_id={global.game_id}&quot;, _json);
+</p>
+<p>The above code creates a <span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span> and then loops through the <span class="inline2">name</span> and <span class="inline2">score</span> arrays, adding each key/value pair to the new map. Next, this map is encoded using <span class="inline3_func"><a href="json_encode.htm">json_encode</a></span> and stored as a string in the variable <span class="inline2">_str</span>. This string is then sent to a web server using <span class="inline3_func"><a href="../../Asynchronous_Functions/HTTP/http_post_string.htm">http_post_string</a></span> and the DS map is destroyed to prevent a memory leak as it is no longer needed.</p>
+<p> </p>
+<h4>Example 2: Hierarchy of Mixed Data Types</h4>
+<p class="code">var _map = ds_map_create();<br/>
+var _list = ds_list_create();<br/>
+<br/>
+ds_map_add_list(_map, &quot;seasoning&quot;, _list);<br/>
+ds_list_add(_list, &quot;pepper&quot;, &quot;salt&quot;, &quot;thyme&quot;);<br/>
+<br/>
+_map[? &quot;greeting&quot;] = {parts: [&quot;Hello&quot;, &quot;World!&quot;], separator: &quot;, &quot;};<br/>
+_map[? &quot;food&quot;] = [&quot;bread&quot;, &quot;coconut&quot;, &quot;mango&quot;];<br/>
+<br/>
+var _json = json_encode(_map, true);<br/>
+// ds_map_destroy(_map);<br/>
+<br/>
+show_debug_message(_json);
+</p>
+<p>The code example above shows how to encode a DS map with mixed contents to JSON.</p>
+<p>First, a DS map and a DS list are created and stored in temporary variables. The DS list is then added to the DS map using <span class="inline3_func"><a href="../../Data_Structures/DS_Maps/ds_map_add_list.htm">ds_map_add_list</a></span> and gets a few items added to it with a call to <span class="inline3_func"><a href="../../Data_Structures/DS_Lists/ds_list_add.htm">ds_list_add</a></span>. After that, two other keys are added to the map, one gets assigned a <span data-keyref="Type_Struct"><a target="_blank" href="../../../GML_Overview/Structs.htm">Struct</a></span> as the value with an <span data-keyref="Type_Array"><a target="_blank" href="../../../GML_Overview/Arrays.htm">Array</a></span> in it, the other gets assigned an array.</p>
+<p>The map&#39;s contents are then encoded with a call <span class="inline3_func"><span data-field="title" data-format="default">json_encode</span></span>, with the <span class="inline2">prettify</span> parameter set to <span class="inline2">true</span>. If you only need the JSON string, the map can be destroyed right after this.</p>
+<p>Finally, the JSON string is shown in a debug message.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Encoding_And_Hashing.htm">Encoding And Hashing</a></div>
+<div style="float:right">Next: <a href="json_encode.htm">json_encode</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5df3a9af903b',t:'MTcyNjk0NTk0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

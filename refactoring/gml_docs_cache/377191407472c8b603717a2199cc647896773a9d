@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.3.8.0_6";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>shader_set_uniform_f_array</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page outlining the function shader_set_uniform_f_array" />
+<meta name="rh-index-keywords" content="shader_set_uniform_f_array" />
+<meta name="search-keywords" content="shader_set_uniform_f_array" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Shaders/shader_set_uniform_f_buffer.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Shaders/shader_set_uniform_f.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="shader_set_uniform_f_array">
+<span>shader_set_uniform_f_array</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">shader_set_uniform_f_array</span></h1>
+<p>With this function you can set a shader constant to hold an array of values. You must previously have gotten the &quot;handle&quot; of the constant using the function <a href="shader_get_uniform.htm"><span class="inline">shader_get_uniform()</span></a>, and you will have to have previously initialised the array.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> <b></b>All uniforms must be set <b>after</b> calling the function <span style="font-size:1px;"><a href="shader_set.htm"><span class="inline">shader_set()</span></a></span>, and before calling <span style="font-size:1px;"><a href="shader_reset.htm"><span class="inline">shader_reset()</span></a></span>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">shader_set_uniform_f_array(handle, array);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>handle</td>
+<td><span data-keyref="Type_Handle_Shader_Uniform"><a target="_blank" href="shader_get_uniform.htm">Shader Uniform Handle</a></span></td>
+<td>The handle of the shader constant to set.</td>
+</tr>
+<tr>
+<td>array</td>
+<td><span data-keyref="Type_Array"><a target="_blank" href="../../../GML_Overview/Arrays.htm">Array</a></span></td>
+<td>A previously initialised array of floating point values.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">shader_set(shader_Glass);<br/>
+tex_array[0] = 0.5;<br/>
+tex_array[1] = 0.1;<br/>
+tex_array[2] = 0.25;<br/>
+shader_params = shader_get_uniform(shader_glass, &quot;u_vParams&quot;);<br/>
+<span data-field="title" data-format="default">shader_set_uniform_f_array</span>(shader_params, tex_array);<br/>
+draw_self();<br/>
+shader_reset();
+</p>
+<p>The above code will get the handle of the shader constant &quot;u_vParams&quot; then set that constant to the given array.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Shaders.htm">Shaders</a></div>
+<div style="float:right">Next: <a href="shader_set_uniform_f_buffer.htm">shader_set_uniform_f_buffer</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5a7b49b53bab',t:'MTcyNjk0NTgwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

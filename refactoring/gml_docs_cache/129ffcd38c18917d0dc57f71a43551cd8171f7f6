@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.12.1.0_1";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>flexpanel_create_node</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../../assets/css/default.css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="flexpanel_create_node" />
+<meta name="search-keywords" content="flexpanel_create_node" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+</head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="flexpanel_create_node">
+<span>flexpanel_create_node</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">flexpanel_create_node</span></h1>
+<p>This function creates a new <span data-keyref="FlexPanel">Flex Panel</span> node.</p>
+<p>You can optionally pass either a JSON string or a struct containing the node&#39;s properties, which are <a href="../Flex_Panels_Styling.htm">described here</a>. These properties can also be set later using other <a href="section_index.htm">Flex Panel Functions</a>.</p>
+<p>The returned node can be <a href="flexpanel_node_insert_child.htm">inserted into another node</a> as a child. When you no longer need a node, you must <a href="flexpanel_delete_node.htm">delete it</a> otherwise it will continue to stay in memory.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">flexpanel_create_node</span>([struct_or_json]);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>struct_or_json</td>
+<td><span data-keyref="Type_Struct"><a target="_blank" href="../../../GML_Overview/Structs.htm">Struct</a></span> or <span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td><span data-conref="../../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> Struct with node information or string containing JSON data, members described <a href="../Flex_Panels_Styling.htm">on this page</a></td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_ID_FlexPanel_Node"><a target="_blank" href="flexpanel_create_node.htm">Flex Panel Node</a></span></p>
+<p> </p>
+<h4>Example 1: Creating An Empty Node</h4>
+<p class="code">n_root = flexpanel_create_node();</p>
+<p>This creates an empty node. You can later <a href="section_index.htm">set properties</a> on this and <a href="flexpanel_node_insert_child.htm">insert other nodes</a> as children.</p>
+<p> </p>
+<h4>Example 2: Passing a Struct</h4>
+<div data-conref="../../../../assets/snippets/Flex_Panel_example_create_node_with_struct.hts">
+<p class="code">n_root = flexpanel_create_node({<br/>
+    width: &quot;80%&quot;, height: 200, padding: 20,<br/>
+    nodes: [<br/>
+        {<br/>
+            height: 20<br/>
+        },<br/>
+        {<br/>
+            flex: 1, flexDirection: &quot;row&quot;,<br/>
+            nodes: [<br/>
+                { aspectRatio: 1 },<br/>
+                { aspectRatio: 1 },<br/>
+                { aspectRatio: 1 },<br/>
+            ]<br/>
+        },<br/>
+        {<br/>
+            height: 20<br/>
+        },<br/>
+    ]<br/>
+});</p>
+</div>
+<p>This creates a node using a struct. That struct contains information on the properties of the root node and all of its nested children.</p>
+<p> </p>
+<h4>Example 3: Passing a JSON String</h4>
+<p class="code">n_root = flexpanel_create_node(@&#39;{<br/>
+    &quot;width&quot;: &quot;80%&quot;, &quot;height&quot;: 200, &quot;padding&quot;: 20,<br/>
+    &quot;nodes&quot;: [<br/>
+        {<br/>
+            &quot;height&quot;: 20<br/>
+        },<br/>
+        {<br/>
+            &quot;flex&quot;: 1, &quot;flexDirection&quot;: &quot;row&quot;,<br/>
+            &quot;nodes&quot;: [<br/>
+                { &quot;aspectRatio&quot;: 1 },<br/>
+                { &quot;aspectRatio&quot;: 1 },<br/>
+                { &quot;aspectRatio&quot;: 1 },<br/>
+            ]<br/>
+        },<br/>
+        {<br/>
+            &quot;height&quot;: 20<br/>
+        },<br/>
+    ]<br/>
+}&#39;);</p>
+<p>This creates the same nodes as before, however this uses a JSON <a href="../../Strings/Strings.htm#@">multi-line string</a> instead of a struct.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="section_index.htm">Flex Panel Functions</a></div>
+<div>Next: <a href="flexpanel_delete_node.htm">flexpanel_delete_node</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59a1ca763bab',t:'MTcyNjk0NTc3MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

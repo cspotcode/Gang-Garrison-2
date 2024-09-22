@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../../..";
+    gCommonRootRelPath = "../../../../..";
+    gTopicId = "8.2.2.3.5.2.0_3";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>audio_listener_orientation</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page explaining the function audio_listener_orientation" />
+<meta name="rh-index-keywords" content="audio_listener_orientation" />
+<meta name="search-keywords" content="audio_listener_orientation" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Audio/Audio_Listeners/audio_listener_get_data.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Audio/Audio_Listeners/audio_listener_velocity.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="audio_listener_orientation">
+<span>audio_listener_orientation</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>audio_listener_orientation</h1>
+<p>With this function you can change the orientation of the <i>listener</i> within the 3D audio space. The <b>look at</b> direction and <b>up</b> direction are based on the vectors that are resolved from the given relative x, y and z positions, and default to <span data-keyref="Unit_Vector_Z">(0, 0, 1)</span> for the look at direction and <span data-keyref="Unit_Vector_Y">(0, 1, 0)</span> for the up direction, as shown in the illustration below:</p>
+<p><img alt="Listener Orientation Diagram" class="center" src="../../../../../assets/Images/Scripting_Reference/GML/Reference/Audio/Audio_Orientation_Base.png" /></p>
+<p class="note"><b><span class="note">NOTE</span> </b>if you have multiple listeners you should use the function <a href="audio_listener_set_orientation.htm"><span class="inline">audio_listener_set_orientation()</span></a>.</p>
+<p>Changing the listener orientation with this function will change how sound created by audio emitters around the game room are perceived by the player of your game. In the example below, sounds created by the emitter when the listener is at the default position would appear to be coming from below and to the right of the listener, but with the new position and orientation of the listener they will now be perceived as coming from <i>above</i> and to the right.</p>
+<p><img alt="Listener Orientation Example" class="center" src="../../../../../assets/Images/Scripting_Reference/GML/Reference/Audio/Audio_Orientation_Example.png" /></p>
+<h4>Syntax:</h4>
+<p class="code">audio_listener_orientation(lookat_x, lookat_y, lookat_z, up_x, up_y, up_z);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>lookat_x</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The x look vector (default 0).</td>
+</tr>
+<tr>
+<td>lookat_y</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The y look vector (default 0).</td>
+</tr>
+<tr>
+<td>lookat_z</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The z look vector (default 1).</td>
+</tr>
+<tr>
+<td>up_x</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The x up vector (default 0).</td>
+</tr>
+<tr>
+<td>up_y</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The y up vector (default 1).</td>
+</tr>
+<tr>
+<td>up_z</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The z up vector (default 0).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">dx = dcos(direction);<br/>
+dy = - dsin(direction);<br/>
+dz = - dsin(zdirection);<br/>
+audio_listener_position(x, y, z);<br/>
+audio_listener_orientation(dx, dy, dz, 0, 0, 1);</p>
+<p>The above code sets the 3D audio listener position to an instance&#39;s x and y <a href="../../Instances/Instance_Variables/Instance_Variables.htm">variables</a> and an extra z variable. It then sets the audio listener&#39;s orientation to three variables calculated from the instance&#39;s <a href="../../Instances/Instance_Variables/direction.htm">direction</a> and an extra zdirection variable.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Audio_Listeners.htm">Audio Listeners</a></div>
+<div style="float:right">Next: <a href="audio_listener_get_data.htm">audio_listener_get_data</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59305da23bab',t:'MTcyNjk0NTc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

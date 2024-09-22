@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.1.0_30";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>variable_get_hash</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../assets/css/default.css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="variable_get_hash" />
+<meta name="search-keywords" content="variable_get_hash" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Variable_Functions/variable_clone.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Variable_Functions/struct_set_from_hash.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="variable_get_hash">
+<span>variable_get_hash</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">variable_get_hash</span></h1>
+<p>This function returns a hash for the given string. This hash can be used with the <span class="inline3_func"><a href="struct_get_from_hash.htm">struct_get_from_hash</a></span> and <span class="inline3_func"><a href="struct_set_from_hash.htm">struct_set_from_hash</a></span> functions.</p>
+<div data-conref="../../../assets/snippets/Note_Variable_Hash_Faster_Access.hts">
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> The compiler automatically replaces variable names that it detects cannot ever change while your game is running (i.e. they are <em>constant at compile time</em>) with their hash value. It can be useful to get the hash yourself if you only know the name of the variable that&#39;s accessed while your game is running (i.e. <em>at runtime</em>). See <a href="../../../Settings/Runner_Details/Compiler_Optimisations.htm">Compiler Optimisations</a>.</p>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">variable_get_hash</span>(name)</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>name</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The name of the variable to get the hash from</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var _the_struct = {a: 77, b: 88, c: 99};<br/>
+var _varname = choose(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;);<br/>
+var _hash = variable_get_hash(_varname);<br/>
+var _value = struct_get_from_hash(_the_struct, _hash);</p>
+<p>The above code creates a temporary struct <span class="inline2">_the_struct</span> with three member variables: <span class="inline2">a</span>, <span class="inline2">b</span> and <span class="inline2">c</span>. It then calls <span class="inline3_func"><a href="../Maths_And_Numbers/Number_Functions/choose.htm">choose</a></span> to pick one of these variable names at random and uses the returned name in <span class="inline3_func"><span data-field="title" data-format="default">variable_get_hash</span></span> to get that variable name&#39;s hash. This hash is stored in a temporary variable <span class="inline2">_hash</span> and then used in <span class="inline3_func"><a href="struct_get_from_hash.htm">struct_get_from_hash</a></span> to retrieve the value of the struct member with the corresponding name. The returned value is assigned to another temporary variable <span class="inline2">_value</span>.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="Variable_Functions.htm">Variable Functions</a></div>
+<div>Next: <a href="variable_clone.htm">variable_clone</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5abd5f9d3bab',t:'MTcyNjk0NTgxNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

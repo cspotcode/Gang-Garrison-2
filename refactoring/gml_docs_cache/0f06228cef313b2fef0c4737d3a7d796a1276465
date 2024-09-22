@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.22.0_15";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>os_request_permission</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../assets/css/default.css" type="text/css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for os_request_permission" />
+<meta name="rh-index-keywords" content="os_request_permission,os_permission_granted,os_permission_denied" />
+<meta name="search-keywords" content="os_request_permission,os_permission_granted,os_permission_denied" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/OS_And_Compiler/GM_build_date.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/OS_And_Compiler/os_check_permission.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="os_request_permission">
+<span>os_request_permission</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>os_request_permission</h1>
+<p>With this function you can request a specific permission. You supply the permission to request as a string using the format &quot;<span class="inline">android.permission.&lt;permission&gt;</span>&quot;, so to request the <span class="inline">RECORD_AUDIO</span> permission (for example) you would call:</p>
+<p class="code">os_request_permission(&quot;android.permission.RECORD_AUDIO&quot;);</p>
+<p>This function is for the Android target only.</p>
+<p>You can request multiple permissions at once by passing multiple arguments into the function.</p>
+<p>This will later trigger a <a href="../../../The_Asset_Editors/Object_Properties/Async_Events/System.htm">System Asynchronous Event</a> where the built in <a href="../../GML_Overview/Variables/Builtin_Global_Variables/async_load.htm"><span class="inline">async_load</span></a> DS map will contain the following key/value pairs:</p>
+<ul class="colour">
+<li>&quot;<b>type</b>&quot;: This will be the string <span class="inline2">&quot;permission_request_result&quot;</span>, used to identify the type of event triggered.</li>
+<li>&quot;<b>&lt;permission&gt;</b>&quot;: This will be a permission requested by the function, as a string. You will get keys for all the permissions you requested in the original function call.<br/>
+<br/>
+This key will equal one of the following constants:
+</li>
+</ul>
+<table>
+<tbody>
+<tr>
+<th>Constant</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><span class="inline">os_permission_granted</span></td>
+<td>This indicates that the permission has been granted</td>
+</tr>
+<tr>
+<td><span class="inline">os_permission_denied</span></td>
+<td>This indicates that the permission has not been granted</td>
+</tr>
+</tbody>
+</table>
+<p>It is worth noting that the following permission are supported natively by <span data-keyref="GameMaker Name">GameMaker</span>, but are considered &quot;dangerous&quot; by Google and as such they <i>must</i> be explicitly requested (note too that some permissions can be requested using the <a href="../../../Settings/Game_Options/Android.htm">Android Game Options</a> without the need for this function):</p>
+<ul class="colour">
+<li><span class="inline">android.permission.WRITE_EXTERNAL_STORAGE</span></li>
+<li><span class="inline">android.permission.READ_PHONE_STATE</span></li>
+<li><span class="inline">android.permission.RECORD_AUDIO</span></li>
+</ul>
+<p>For more information on app permissions, please see the <a href="https://developer.android.com/guide/topics/permissions/overview" target="_blank">Android Documentation</a>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">os_request_permission(permissions...)</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>permissions</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The permission(s) to request. Request multiple permissions by adding more arguments.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example 1:</h4>
+<p class="code">if (os_type == os_android)<br/>
+{<br/>
+    if (os_check_permission(&quot;android.permission.INTERNET&quot;) == os_permission_denied)<br/>
+    {<br/>
+        os_request_permission(&quot;android.permission.INTERNET&quot;);<br/>
+    }<br/>
+}</p>
+<p>The above code checks the OS type and if it&#39;s Android, it performs a check on the &quot;INTERNET&quot; permission and if it&#39;s not yet been granted, it requests it.</p>
+<h4>Example 2:</h4>
+<p class="code">var _read = &quot;android.permission.READ_EXTERNAL_STORAGE&quot;;<br/>
+var _write = &quot;android.permission.WRITE_EXTERNAL_STORAGE&quot;;<br/>
+<br/>
+if (os_check_permission(_write) &amp;&amp; os_check_permission(_read))<br/>
+{<br/>
+    MobileMedia_Share_Open(&quot;Title!&quot;, &quot;image/gif&quot;, file);<br/>
+}<br/>
+else<br/>
+{<br/>
+    os_request_permission(_write, _read);<br/>
+}
+</p>
+<p>This function checks if the user has permissions for reading from and writing to external storage. If it&#39;s allowed, it runs an extension function to operate using those permissions. However if either of those permissions are not allowed, it calls <span class="inline2">os_request_permission()</span> to request both permissions at once.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="OS_And_Compiler.htm">OS And Compiler</a></div>
+<div style="float:right">Next: <a href="GM_build_date.htm">GM_build_date</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5a2dfa0c3bab',t:'MTcyNjk0NTc5NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

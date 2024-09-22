@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.18.6.0_2";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<link rel="stylesheet" type="text/css" href="../../../../assets/css/default.css" /><script src="../../../../../assets/scripts/main_script.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<title>json_decode</title>
+<meta name="topic-status" content="Draft" />
+<link rel="stylesheet" type="text/css" href="../../../../assets/css/default.css" />
+<meta name="template" content="../../../../assets/masterpages/Manual_Page.htt" />
+<meta name="search-keywords" content="json_decode,json" />
+<meta name="rh-index-keywords" content="json_decode" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/File_Handling/Encoding_And_Hashing/json_stringify.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/File_Handling/Encoding_And_Hashing/json_encode.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="json_decode">
+<span>json_decode</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<div>
+</div>
+<div>
+<h1><span data-field="title" data-format="default">json_decode</span></h1>
+<p>This function decodes a JSON string and converts it into a <span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span>, ready for use in <span data-keyref="GameMaker Name">GameMaker</span>.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_important.hts"><span class="important">IMPORTANT</span></span> This function - while still valid for DS maps - has been superseded by the function <span class="inline3_func"><a href="json_parse.htm">json_parse</a></span> and <a href="../../../GML_Overview/Structs.htm">structs</a>, and we recommend that you only use this function for legacy support.</p>
+<p><span data-keyref="GameMaker Name">GameMaker</span> creates the necessary DS maps and lists from the JSON, and for cleaning up you only need to delete the top-level map and <span data-keyref="GameMaker Name">GameMaker</span> will automatically delete from memory all the maps and lists underneath.<br/>
+If the JSON to be decoded requires a hierarchy of lists and maps within the central DS map, these are also decoded and created for you, using the following rules (note that these rules apply to the top-level structure only):</p>
+<ul>
+<li><strong>JSON is a single value</strong> - returns a DS map with a single entry <span class="inline2">&quot;default&quot;</span> that is the value</li>
+<li><strong>JSON is an array of objects or values</strong> - returns a DS map with a single entry <span class="inline2">&quot;default&quot;</span> that is a DS list of the objects or values</li>
+<li><strong>JSON is an object</strong> - returns a DS map that has the object entries in it</li>
+</ul>
+<h3>Usage Notes</h3>
+<ul class="colour">
+<li>This function always returns a <span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span>, no matter the type of the top-level element. If this top-level element in the JSON is not an object (either a single value <span class="inline2">&quot;5&quot;</span> or an array <span class="inline2">&quot;1, 2, 3, 4&quot;</span>), it will be placed in a <span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span> under a key <span class="inline2">&quot;default&quot;</span>. Internal lists decode directly to a <span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span> without being enclosed in a DS map.</li>
+<li>If you wrote <span data-keyref="GameMaker Name">GameMaker</span> arrays into the top level, or as the contents of a DS map or DS list, these will be decoded as DS lists, not as arrays.</li>
+<li>Normally you&#39;ll know what keys the JSON decodes to, if not you can use the <span class="inline3_func"><a href="../../Data_Structures/DS_Maps/ds_map_size.htm">ds_map_size</a></span>, <span class="inline3_func"><a href="../../Data_Structures/DS_Maps/ds_map_find_first.htm">ds_map_find_first</a></span> and <span class="inline3_func"><a href="../../Data_Structures/DS_Maps/ds_map_find_next.htm">ds_map_find_next</a></span> functions to get this information.</li>
+<li>You can load JSON files with a maximum nesting limit of <span data-keyref="Const_JSON_Max_Nesting_Limit">128</span>.</li>
+</ul>
+<div data-conref="../../../../assets/snippets/Note_See_Guide_To_Using_JSON.hts">
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> See <a href="../../../../Additional_Information/Guide_To_Using_JSON.htm">Guide To Using JSON</a> for detailed information on how to work with JSON in <span data-keyref="GameMaker Name">GameMaker</span>.</p>
+</div>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">json_decode</span>(string)</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>string</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The JSON formatted string to decode</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span> or -1 (if it fails)</p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var resultMap = json_decode(requestResult);<br/>
+var list = ds_map_find_value(resultMap, &quot;default&quot;);<br/>
+var size = ds_list_size(list);<br/>
+for (var n = 0; n &lt; ds_list_size(list); n++;)<br/>
+{<br/>
+    var map = ds_list_find_value(list, n);<br/>
+    var curr = ds_map_find_first(map);<br/>
+    while (is_string(curr))<br/>
+    {<br/>
+        global.Name[n] = ds_map_find_value(map, &quot;name&quot;);<br/>
+        curr = ds_map_find_next(map, curr);<br/>
+    }<br/>
+}<br/>
+ds_map_destroy(resultMap);</p>
+<p>The above code will decode a JSON string and parse it to generate a global array.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="Encoding_And_Hashing.htm">Encoding And Hashing</a></div>
+<div>Next: <a href="json_stringify.htm">json_stringify</a></div>
+</div>
+</div>
+<h5><span data-conref="../../../../assets/snippets/Copyright_Notice_AutoUpdate.hts">© Copyright <span data-keyref="Company Name">YoYo Games</span> <span data-keyref="Company Structure Suffix">Ltd.</span> <span data-field="date" data-format="YYYY">2024</span> All Rights Reserved</span></h5>
+</div>
+
+
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59de4d773bab',t:'MTcyNjk0NTc4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../../..";
+    gCommonRootRelPath = "../../../../..";
+    gTopicId = "8.2.2.3.6.1.0_8";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>path_append</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page explaining the function path_append" />
+<meta name="rh-index-keywords" content="path_append" />
+<meta name="search-keywords" content="path_append" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Paths/Path_Manipulation/path_assign.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Paths/Path_Manipulation/path_clear_points.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="path_append">
+<span>path_append</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>path_append</h1>
+<p>With this code you can append one path onto another one, effectively joining them together, and for this to work, both paths must previously exist. In general you would want to use this function on paths created using <span class="inline"><a href="path_add.htm">path_add()</a></span>, since if you use it on a path asset, <strong>it will permanently affect the path for instances in the game</strong> from the moment the function is used until the end of the game.</p>
+<p class="note"><span class="note">NOTE</span> This will not remove the path being appended from the game. It is still there, only it now has no points in it and if you no longer wish to use it you should remove it with the function <span style="font-size:1px;"><a href="path_delete.htm"><span class="inline">path_delete()</span></a></span>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">path_append(index, path);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th><th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>index</td><td><span data-keyref="Type_Asset_Path"><a target="_blank" href="../../../../../The_Asset_Editors/Paths.htm">Path Asset</a></span></td>
+<td>The new index of the path.</td>
+</tr>
+<tr>
+<td>path</td><td><span data-keyref="Type_Asset_Path"><a target="_blank" href="../../../../../The_Asset_Editors/Paths.htm">Path Asset</a></span></td>
+<td>The index of the path that will be appended to &#39;index&#39;.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">path_append(mypath, mppath);<br/>
+path_delete(mppath);</p>
+<p>The above code appends the path data indexed in the variable &quot;mppath&quot; to the path indexed in the variable &quot;mypath&quot; and then deletes the &quot;mppath&quot; from memory.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Path_Manipulation.htm">Path Manipulation</a></div>
+<div style="float:right">Next: <a href="path_assign.htm">path_assign</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5e1e1b7b903b',t:'MTcyNjk0NTk1NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

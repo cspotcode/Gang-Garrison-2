@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../../..";
+    gCommonRootRelPath = "../../../../..";
+    gTopicId = "8.2.2.12.1.1.0_5";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>flexpanel_node_style_set_min_height</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../../../assets/css/default.css" />
+<script src="../../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="flexpanel_node_style_set_min_height" />
+<meta name="search-keywords" content="flexpanel_node_style_set_min_height" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+</head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="flexpanel_node_style_set_min_height">
+<span>flexpanel_node_style_set_min_height</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">flexpanel_node_style_set_min_height</span></h1>
+<p>This function sets the <span class="inline2">minHeight</span> property of the given <span data-keyref="Type_ID_FlexPanel_Node"><a target="_blank" href="../flexpanel_create_node.htm">Flex Panel Node</a></span>.</p>
+<p>See: <a data-rhwidget="HyperlinkPopover" href="../../Flex_Panels_Styling.htm#h18">Min/Max Width and Height</a></p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">flexpanel_node_style_set_min_height</span>(node, value, unit);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>node</td>
+<td><span data-keyref="Type_ID_FlexPanel_Node"><a target="_blank" href="../flexpanel_create_node.htm">Flex Panel Node</a></span></td>
+<td>The node to modify</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td>value</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The value to use</td>
+</tr>
+<tr>
+<td>unit</td>
+<td><span data-keyref="Type_Const_FlexPanel_Unit"><a target="_blank" href="section_index.htm#units">Flex Panel Unit Constant</a></span></td>
+<td>The unit of the value</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code"><span data-field="title" data-format="default">flexpanel_node_style_set_min_height</span>(_node, 60, flexpanel_unit.point);</p>
+<p>This sets the minimum height of a node to 60px.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="section_index.htm">Styling Functions</a></div>
+<div>Next: <a href="flexpanel_node_style_set_max_height.htm">flexpanel_node_style_set_max_height</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5dd17efa903b',t:'MTcyNjk0NTk0My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

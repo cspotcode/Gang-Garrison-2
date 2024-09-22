@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.7.2.0_32";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>window_set_fullscreen</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for window_set_fullscreen" />
+<meta name="rh-index-keywords" content="window_set_fullscreen" />
+<meta name="search-keywords" content="window_set_fullscreen" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Cameras_And_Display/The_Game_Window/window_set_position.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Cameras_And_Display/The_Game_Window/window_get_visible_rects.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="window_set_fullscreen">
+<span>window_set_fullscreen</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>window_set_fullscreen</h1>
+<p>With this function you can set the game window to be full screen (<span class="inline">true</span>) or not (<span class="inline">false</span>). Please note that for the <b>macOS</b> target, you <i>must</i> have unchecked the &quot;Start In Fullscreen&quot; option and checked the &quot;Allow the player to resize the game window&quot; option in the <a href="../../../../Settings/Game_Options.htm">Game Options</a>, otherwise this function will fail. Also note that this function will <i>not</i> work on HTML5 unless it&#39;s added in as a &quot;clickable&quot; callback (see <a href="../../Web_And_HTML5/clickable_add.htm">here</a> for more details).</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">window_set_fullscreen(full);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th><th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>full</td><td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td>Whether to set the screen to fullscreen (true) or not (false).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if mouse_check_button_pressed(mb_left)<br/>
+{<br/>
+    if window_get_fullscreen()<br/>
+    {<br/>
+        window_set_fullscreen(false);<br/>
+    }<br/>
+    else<br/>
+    {<br/>
+        window_set_fullscreen(true);<br/>
+    }<br/>
+}</p>
+<p>The above code checks for a mouse button press and then sets the window to fullscreen if it is not already, or sets it to windowed if it is already.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="../The_Game_Window/The_Game_Window.htm">The Game Window</a></div>
+<div style="float:right">Next: <a href="../The_Game_Window/window_set_position.htm">window_set_position</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5ada3b833bab',t:'MTcyNjk0NTgyMS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

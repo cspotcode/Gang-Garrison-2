@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.7.2_1";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>display_reset</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../assets/css/default.css" type="text/css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference section for display_reset" />
+<meta name="rh-index-keywords" content="display_reset,display_aa" />
+<meta name="search-keywords" content="display_reset,display_aa" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Cameras_And_Display/display_get_width.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Cameras_And_Display/The_Game_Window/window_set_max_height.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="display_reset">
+<span>display_reset</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">display_reset</span></h1>
+<p>This function resets the display settings to the ones that were set when the game was started and also allows you to change the current level of fullscreen anti-aliasing being used and whether to use vertical synchronisation.</p>
+<p>The available anti-aliasing levels are 0, 2, 4 and 8, with the default startup value being set to 0, and the default v-sync setting to <span class="inline2">false</span> (off). Switching v-sync on may give a smoother gaming experience but it will also need more processing power and so its impact must be carefully considered before use, and the same goes for the anti-aliasing where the higher the number the more processing that is required.</p>
+<p>Since not all target devices are the same, some may not support 8x or 4x anti-aliasing for example, and so there is a <b>read-only</b> variable available for getting the different levels of AA that the device running the game can display:</p>
+<p class="code">display_aa</p>
+<p>This variable stores an integer value based on the setting of bits for the different levels. So for only 2xAA, this will report 2, for 2x and 4x availability it will report 6. For 8 and 4 it will report 12. For all 3 levels (2, 4 and 8) it will report 14.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">display_reset</span>(aa, vsync);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>aa</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The level of anti-aliasing filtering (0, 2, 4 or 8).</td>
+</tr>
+<tr>
+<td>vsync</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td>Toggle vertical synchronisation to on (<span class="inline2">true</span>) or off (<span class="inline2">false</span>).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (display_aa &gt;= 8)<br/>
+{<br/>
+    display_reset(8, true);<br/>
+}</p>
+<p>The above code will set the anti-aliasing level to 8 if supported and switch v-sync to on.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Cameras_And_Display.htm">Cameras And Display</a></div>
+<div style="float:right">Next: <a href="display_get_width.htm">display_get_width</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c595ddaa83bab',t:'MTcyNjk0NTc2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

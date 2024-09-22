@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../../..";
+    gCommonRootRelPath = "../../../../..";
+    gTopicId = "8.2.2.3.5.2.0_4";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>audio_listener_get_data</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page explaining the function audio_listener_get_data" />
+<meta name="rh-index-keywords" content="audio_listener_get_data" />
+<meta name="search-keywords" content="audio_listener_get_data" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Audio/Audio_Listeners/audio_listener_set_position.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Audio/Audio_Listeners/audio_listener_orientation.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="audio_listener_get_data">
+<span>audio_listener_get_data</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>audio_listener_get_data</h1>
+<p>This function will create a <a href="../../../Data_Structures/DS_Maps/DS_Maps.htm">DS map</a> and populate it with the position, velocity and orientation values for the given listener. The default listener index is 0, but you can use the function <a href="audio_get_listener_info.htm"><span class="inline">audio_get_listener_info()</span></a> to get the different indices available for the target platform. If you provide an incorrect listener index then the function will return -1.</p>
+<p class="note"><b><span class="note">NOTE</span> </b>You are responsible for the destruction of the returned<span> DS map </span>using the appropriate function.</p>
+<p>The DS map will contain the following keys:</p>
+<ul class="colour">
+<li>&quot;<strong>x</strong>&quot; - The x position of the listener</li>
+<li>&quot;<strong>y</strong>&quot; - The y position of the listener</li>
+<li>&quot;<strong>z</strong>&quot; - The z position of the listener</li>
+<li>&quot;<strong>vx</strong>&quot; - The x axis velocity of the listener</li>
+<li>&quot;<strong>vy</strong>&quot; - The y axis velocity of the listener</li>
+<li>&quot;<strong>vz</strong>&quot; - The z axis velocity of the listener</li>
+<li>&quot;<strong>lookat_x</strong>&quot; - The x component of the look at vector of the listener</li>
+<li>&quot;<strong>lookat_y</strong>&quot; - The y component of the look at vector of the listener</li>
+<li>&quot;<strong>lookat_z</strong>&quot; - The z component of the look at vector of the listener</li>
+<li>&quot;<strong>up_x</strong>&quot; - The x component of the up vector of the listener</li>
+<li>&quot;<strong>up_y</strong>&quot; - The y component of the up vector of the listener</li>
+<li>&quot;<strong>up_z</strong>&quot; - The z component of the up vector of the listener</li>
+</ul>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code">audio_listener_get_data(index);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>index</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../../GML_Overview/Data_Types.htm">Real</a></span> or <span data-keyref="Type_ID_Audio_Listener"><a target="_blank" href="Audio_Listeners.htm">Audio Listener ID</a></span></td>
+<td>The listener to get the data for (default is 0).</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_ID_DS_Map"><a target="_blank" href="../../../Data_Structures/DS_Maps/ds_map_create.htm">DS Map</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var num = audio_get_listener_count();<br/>
+for(var i = 0; i &lt; num; ++i;)<br/>
+{<br/>
+    var info = audio_get_listener_info(i);<br/>
+    var data = audio_listener_get_data(info[? &quot;index&quot;]);<br/>
+    if data[? &quot;x&quot;] != 0<br/>
+    {<br/>
+        audio_listener_set_position(info[? &quot;index&quot;], 0, 0, 0);<br/>
+    }<br/>
+    ds_map_destroy(info);<br/>
+    ds_map_destroy(data);<br/>
+}</p>
+<p>The above code checks the number of listeners available then loops through them and if their x position is not 0, it sets their position to 0, 0, 0.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Audio_Listeners.htm">Audio Listeners</a></div>
+<div style="float:right">Next: <a href="audio_listener_position.htm">audio_listener_set_position</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c592ffd3b3bab',t:'MTcyNjk0NTc1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

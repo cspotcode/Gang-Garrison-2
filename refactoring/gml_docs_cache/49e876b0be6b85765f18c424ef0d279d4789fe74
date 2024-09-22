@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.6.2.0_40";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>gpu_set_texrepeat</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference for the function gpu_set_texrepeat" />
+<meta name="rh-index-keywords" content="gpu_set_texrepeat, gpu_set_tex_repeat" />
+<meta name="search-keywords" content="gpu_set_texrepeat, gpu_set_tex_repeat" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Drawing/GPU_Control/gpu_set_texrepeat_ext.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Drawing/GPU_Control/gpu_set_texfilter_ext.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="gpu_set_texrepeat">
+<span>gpu_set_texrepeat</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">gpu_set_texrepeat</span></h1>
+<p>This function can be used to indicate to <span data-keyref="GameMaker Name">GameMaker</span> whether textures should repeat (<span class="inline2">true</span>) or not (<span class="inline2">false</span>) when used for models and primitives.</p>
+<p>Normally texture widths and heights lie in the range 0 - 1, but if you specify a value larger than 1 by default the rest is not drawn (the entire texture will be drawn with an &quot;empty&quot; section corresponding to the percentage over 1 that is used. So a value of 2 for a texture width or height would draw the texture in half the space and leave the other half empty). However, by using this function to set repeat to <span class="inline2">true</span> the texture is repeated automatically over all models and primitives. The likely use case for these functions is for repeating a texture in 3D but in order for it to work and not pull images from the rest of the texture page, the sprite used will need to be marked as being on a &quot;Separate Texture Page&quot; in <a href="../../../../The_Asset_Editors/Sprites.htm">The Sprite Editor</a>.</p>
+<p class="note"><b><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> </b>Sprites and backgrounds are always drawn without repeating, so once you draw a sprite or background this value is reset to <span class="inline2">false</span>. This default behaviour will not affect texture stage settings (i.e.: calling the function will, but the internal setting to <span class="inline2">false</span> will not).</p>
+<p class="note"><b><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> </b>This setting will override any texture stage repeats set for shaders when using the function <span class="inline3_func"><a href="gpu_set_texrepeat_ext.htm">gpu_set_texrepeat_ext</a></span>.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">gpu_set_texrepeat</span>(enable);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>enable</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td>Enable or disable texture filtering (<span class="inline">true</span> / <span class="inline">false</span>)</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if (gpu_get_texrepeat())<br/>
+{<br/>
+    gpu_set_texrepeat(false);<br/>
+}<br/>
+else<br/>
+{<br/>
+    gpu_set_texrepeat(true);<br/>
+}</p>
+<p>The above code checks to see if texture repeating is on or off and switches it accordingly.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="GPU_Control.htm">GPU Control</a></div>
+<div style="float:right">Next: <a href="gpu_set_texrepeat_ext.htm">gpu_set_texrepeat_ext</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5de85bd2903b',t:'MTcyNjk0NTk0Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

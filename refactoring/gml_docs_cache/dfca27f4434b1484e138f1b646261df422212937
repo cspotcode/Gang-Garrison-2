@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../../../..";
+    gCommonRootRelPath = "../../../../../..";
+    gTopicId = "8.2.2.3.3.4.2.0_2";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>skeleton_skin_get</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page explaining the function skeleton_skin_get" />
+<meta name="rh-index-keywords" content="skeleton_skin_get" />
+<meta name="search-keywords" content="skeleton_skin_get" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Sprites/Skeletal_Animation/Skins/skeleton_skin_set.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Sprites/Skeletal_Animation/Skins/skeleton_skin_create.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="skeleton_skin_get">
+<span>skeleton_skin_get</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">skeleton_skin_get</span></h1>
+<p>With skeletal animation sprites, you can assign separate textures (called &quot;skins&quot;) to the animation, thereby using one animation for multiple different things. This function will return the name of the skin (as a string) that is currently assigned to the skeletal animation sprite your instance is using. The name returned is that which you set when you created the sprite in your animation program.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">skeleton_skin_get</span>();</p>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_String"><a target="_blank" href="../../../../../GML_Overview/Data_Types.htm">String</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">if <span data-field="title" data-format="default">skeleton_skin_get</span>() == &quot;skin_Enemy1&quot;<br/>
+{<br/>
+    skeleton_skin_set(choose(&quot;skin_Enemy1&quot;, &quot;skin_Enemy2&quot;, &quot;skin_Enemy3&quot;);<br/>
+}</p>
+<p>The above code would check the currently assigned skin for the animation and if it is &quot;skin_Enemy1&quot;, it chooses and sets a new skin from one of three options.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Skins.htm">Skins</a></div>
+<div style="float:right">Next: <a href="skeleton_skin_set.htm">skeleton_skin_set</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5e42cd0b903b',t:'MTcyNjk0NTk2MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

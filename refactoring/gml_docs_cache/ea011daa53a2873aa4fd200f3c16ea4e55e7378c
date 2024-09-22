@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.23.1.0_4";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>dbg_add_font_glyphs</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../assets/css/default.css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="dbg_add_font_glyphs" />
+<meta name="search-keywords" content="dbg_add_font_glyphs" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Debugging/dbg_view.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Debugging/is_debug_overlay_open.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="dbg_add_font_glyphs">
+<span>dbg_add_font_glyphs</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">dbg_add_font_glyphs</span></h1>
+<p>This function adds a range of characters from a TTF font to be used for text rendering in <a href="The_Debug_Overlay.htm">The Debug Overlay</a>. You supply a font name as a string, which must be present in the <a href="../../../Settings/Included_Files.htm">Included Files</a>.</p>
+<p class="note"><span data-conref="../../../assets/snippets/Tag_important.hts"><span class="important">IMPORTANT</span></span> The glyphs that you want to add must be present in the given TTF font.</p>
+<p>The following values can be used to specify the range:</p>
+<table style="caption-side: top">
+<caption>Font Range Constant</caption>
+<colgroup>
+<col style="width:50%" />
+<col style="width:50%" />
+</colgroup>
+<tbody>
+<tr>
+<th> Range</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>-1</td>
+<td>Default Latin range</td>
+</tr>
+<tr>
+<td>0</td>
+<td>Greek</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Korean</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Japanese</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Chinese Full</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chinese Simplified Common</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Cyrillic</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Thai</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Vietnamese</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">dbg_add_font_glyphs</span>(filename, [size], [font_range]);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>filename</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The filename of the TTF file to use</td>
+</tr>
+<tr>
+<td>size</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td><span data-conref="../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> The size of the font in pixels (default is 13)</td>
+</tr>
+<tr>
+<td>font_range</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td><span data-conref="../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> The range of characters to add (default is -1 for the Latin range)</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code"><span data-field="title" data-format="default">dbg_add_font_glyphs</span>(&quot;korean_font.ttf&quot;, 24, 1);</p>
+<p>The above code adds the glyphs of the Korean character range from the TTF font file <span class="inline2">&quot;korean_font.ttf&quot;</span>. The used font size is 24.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="The_Debug_Overlay.htm">The Debug Overlay</a></div>
+<div>Next: <a href="dbg_view.htm">dbg_view</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5eb639d54cc8',t:'MTcyNjk0NTk3OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

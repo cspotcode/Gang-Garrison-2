@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.18.6.0_4";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>json_parse</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for json_parse" />
+<meta name="rh-index-keywords" content="json_parse" />
+<meta name="search-keywords" content="json_parse" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/File_Handling/Encoding_And_Hashing/base64_encode.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/File_Handling/Encoding_And_Hashing/json_stringify.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="json_parse">
+<span>json_parse</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">json_parse</span></h1>
+<p>This function parses a JSON string and converts it into a collection of nested arrays and structs. An array is the equivalent of a JSON array and a struct is the equivalent of a JSON object.</p>
+<p>The JSON should be either previously created using <span class="inline3_func"><a href="json_stringify.htm">json_stringify</a></span> or should come from any other valid source.</p>
+<p>You supply the string to parse, and the function will return the top-level array or struct which can then be used in your code. If you are not sure of the contents of the JSON, you can use the different <a href="../../Variable_Functions/Variable_Functions.htm">Variable Functions</a> (like <span class="inline3_func"><a href="../../Variable_Functions/typeof.htm">typeof</a></span> and <span class="inline3_func"><a href="../../Variable_Functions/variable_struct_get_names.htm">struct_get_names</a></span> in case of a struct) to check the returned contents.</p>
+<h3>Usage Notes</h3>
+<ul class="colour">
+<li>Trying to parse an invalid value (i.e.: not a string, or invalid JSON) will throw an exception error.</li>
+<li>This function only allows you to load JSON files with a maximum nesting limit of <span data-keyref="Const_JSON_Max_Nesting_Limit">128</span>.</li>
+<li>Data conversions:
+<ul>
+<li><span class="inline2">null</span> values are parsed as <span class="inline2">undefined</span>.</li>
+<li>Any runtime values serialised by <span class="inline3_func"><a href="json_stringify.htm">json_stringify</a></span> will be converted back to runtime values (e.g. <a href="../../../GML_Overview/Data_Types.htm">handles</a> and values like <span class="inline2">int64</span>, <span class="inline2">NaN</span> and <span class="inline2">infinity</span>), however this conversion can be disabled by passing <span class="inline2">true</span> into the optional <span><span class="inline2">inhibit_string_convert</span> argument, meaning these will remain as strings.</span></li>
+<li>See <a href="../../../../Additional_Information/Guide_To_Using_JSON.htm#data_conversions">Data Conversions</a> for a full overview.</li>
+</ul>
+</li>
+<li>See <a href="../../../../Additional_Information/Guide_To_Using_JSON.htm">Guide To Using JSON</a> for more information on how <span data-keyref="GameMaker Name">GameMaker</span> interacts with the JSON format.</li>
+</ul>
+<div data-conref="../../../../assets/snippets/Note_See_Guide_To_Using_JSON.hts">
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> See <a href="../../../../Additional_Information/Guide_To_Using_JSON.htm">Guide To Using JSON</a> for detailed information on how to work with JSON in <span data-keyref="GameMaker Name">GameMaker</span>.</p>
+</div>
+<div data-conref="../../../../assets/snippets/JSON_Filter_Function_Description.hts">
+<h3>Filter Function <span data-conref="../../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span></h3>
+<p>The function optionally takes a <span data-keyref="Type_Function"><a target="_blank" href="../../../GML_Overview/Script_Functions.htm">Function</a></span>, which runs once for each value in the structure, including all nested structs/arrays and all the values inside them.</p>
+<p>It takes two arguments <span class="inline2">(key, value)</span> where <span class="inline2">key</span> is the struct key name (<span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span>) or array index (<span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span>), and <span class="inline2">value</span> is what&#39;s stored in that key/index.</p>
+<p>The filter function must always return a value. It can return a new value, which replaces the key&#39;s value in the final converted format returned by <span class="inline3_func"><span data-field="title" data-format="lower-alpha">json_parse</span></span>. If no new value should be returned for a particular key, the function must return the original <span class="inline2">value</span>.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> When overriding a key&#39;s value in the filter function (using <a href="../../../GML_Overview/Language_Features/return.htm">return</a>), make sure you check its type first, as the filter function runs for the root structure and any nested structures as well, meaning accidentally overriding them will result in a broken final structure. See <strong>Example 3</strong> at the bottom.</p>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">json_parse</span>(json, [filter_func], [inhibit_string_convert])</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>json</td>
+<td><span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>The JSON string to parse</td>
+</tr>
+<tr>
+<td>filter_func</td>
+<td><span data-keyref="Type_Function"><a target="_blank" href="../../../GML_Overview/Script_Functions.htm">Function</a></span></td>
+<td><span data-conref="../../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> Filter function that processes each item. Don&#39;t pass a value or set this to <span class="inline2">undefined</span> if you only want to set <span class="inline2">inhibit_string_convert</span>. Syntax: <span class="inline2">function(key, value) -&gt; new_value</span></td>
+</tr>
+<tr>
+<td>inhibit_string_convert</td>
+<td><span data-keyref="Type_Bool"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Boolean</a></span></td>
+<td><span data-conref="../../../../assets/snippets/Tag_optional.hts"><span class="optional">OPTIONAL</span></span> Set this to <span class="inline2">true</span> to disable converting strings into runtime references. Default value: <span class="inline2">false</span></td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Struct"><a target="_blank" href="../../../GML_Overview/Structs.htm">Struct</a></span> or <span data-keyref="Type_Array"><a target="_blank" href="../../../GML_Overview/Arrays.htm">Array</a></span></p>
+<p> </p>
+<h4>Example 1:</h4>
+<p class="code">var json = &quot;{\&quot;myObj\&quot;: { \&quot;apples\&quot;:10, \&quot;oranges\&quot;:12, \&quot;potatoes\&quot;:100000, \&quot;avocados\&quot;:0 }, \&quot;myArray\&quot;:[0, 1, 2, 2, 4, 0, 1, 5, 1]}&quot;;<br/>
+<br/>
+var data = json_parse(json);<br/>
+show_debug_message(data);
+</p>
+<p>The above code creates a new string containing valid JSON, and then calls <span class="inline3_func"><a href="json_parse.htm">json_parse</a></span> to convert that string into a GML struct. It then prints the result to the debug log.</p>
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> You will notice that the JSON string contains a backslash (<span class="inline2">\</span>) before every double quote (<span class="inline2">&quot;</span>) inside it:<br/>
+<br/>
+<span class="inline2">json = &quot;{ <strong>\&quot; </strong>myObj</span><br/>
+<br/>
+This is to ensure that the double quote is read as an actual character within the string, instead of being read as part of the code and closing the string prematurely. This way we are using a backslash to &quot;escape&quot; the double quote.<br/>
+<br/>
+If you are loading JSON from an external file however, there is no need to escape characters in that file.
+</p>
+<hr/>
+<p>After parsing the JSON string above, if you know its structure, you can use various <a href="../../Variable_Functions/Variable_Functions.htm">Variable Functions</a> to check and read its contents:</p>
+<p class="code">var data = json_parse(json);<br/>
+<br/>
+// Check if the struct has myObj variable<br/>
+if (struct_exists(data, &quot;myObj&quot;))<br/>
+{<br/>
+    // Check if it&#39;s a struct<br/>
+    if (is_struct(data.myObj))<br/>
+    {<br/>
+        // Print all struct members to the log<br/>
+        var _names = struct_get_names(data.myObj);<br/>
+        var _str = &quot;&quot;;<br/>
+        for (var i = 0; i &lt; array_length(_names); i++;)<br/>
+        {<br/>
+            _str = _names[i] + &quot;: &quot; + string(struct_get(data.myObj, _names[i]));<br/>
+            show_debug_message(_str);<br/>
+        }<br/>
+    }<br/>
+}<br/>
+<br/>
+// Check if the struct has myArray variable<br/>
+if (struct_exists(data, &quot;myArray&quot;))<br/>
+{<br/>
+    // Check if it&#39;s an array<br/>
+    if (is_array(data.myArray))<br/>
+    {<br/>
+        show_debug_message(data.myArray);<br/>
+    }<br/>
+}
+</p>
+<p>The above code will parse the given JSON string, generating the following console output:</p>
+<p class="code">oranges: 12<br/>
+potatoes: 100000<br/>
+avocados: 0<br/>
+apples: 10<br/>
+[ 0,1,2,2,4,0,1,5,1 ]</p>
+<p> </p>
+<h4>Example 2: Filter Function</h4>
+<p class="code">var json = &quot;{\&quot;myObj\&quot;: { \&quot;apples\&quot;:10, \&quot;oranges\&quot;:12, \&quot;potatoes\&quot;:100000, \&quot;avocados\&quot;:0 }, \&quot;myArray\&quot;:[0, 1, 2, 2, 4, 0, 1, 5, 1]}&quot;;<br/>
+<br/>
+var data = json_parse(json, function (key, value)<br/>
+{<br/>
+    show_debug_message($&quot;Key: {key}, Value: {value}&quot;);<br/>
+    return value;<br/>
+});
+</p>
+<p>The above code takes the same JSON string from the previous example, and converts it into a GML struct, however this time it uses a filter function.</p>
+<p>The filter function prints the key and value of each item to the Output Log:</p>
+<p class="code_plain">Key: apples, Value: 10<br/>
+Key: oranges, Value: 12<br/>
+Key: potatoes, Value: 100000<br/>
+Key: avocados, Value: 0<br/>
+Key: myObj, Value: { apples : 10, oranges : 12, potatoes : 100000, avocados : 0 }<br/>
+Key: 8, Value: 1<br/>
+Key: 7, Value: 5<br/>
+Key: 6, Value: 1<br/>
+Key: 5, Value: 0<br/>
+Key: 4, Value: 4<br/>
+Key: 3, Value: 2<br/>
+Key: 2, Value: 2<br/>
+Key: 1, Value: 1<br/>
+Key: 0, Value: 0<br/>
+Key: myArray, Value: [ 0,1,2,2,4,0,1,5,1 ]<br/>
+Key: , Value: { myObj : { apples : 10, oranges : 12, potatoes : 100000, avocados : 0 }, myArray : [ 0,1,2,2,4,0,1,5,1 ] }</p>
+<p>Note how the filter function runs on the struct (<span class="inline2">myObj</span>) and array (<span class="inline2">myArray</span>) in the JSON and then also on each item inside the struct and array. It also runs on the root structure with the key set to an empty string (here, seen on the last line).</p>
+<p> </p>
+<h4>Example 3: Overriding Values</h4>
+<p class="code">var json = &quot;{\&quot;prices\&quot;: [2, 5, 1, 2, 4, 5]}&quot;;<br/>
+<br/>
+var data = json_parse(json, function (key, value)<br/>
+{<br/>
+    return is_real(value) ? value * 1000 : value;<br/>
+});<br/>
+<br/>
+show_debug_message(data);
+</p>
+<p>The above code takes a JSON string containing an array inside a struct. Then <span class="inline3_func"><span data-field="title" data-format="default">json_parse</span></span> is run with a filter function that multiplies each value with 1000, only when it&#39;s a <span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span>. Otherwise it simply returns the value itself.</p>
+<p>The resulting structure looks like this:</p>
+<p class="code_plain">{ prices : [ 2000,5000,1000,2000,4000,5000 ] }</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Encoding_And_Hashing.htm">File Encoding</a></div>
+<div style="float:right">Next: <a href="base64_encode.htm">base64_encode</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59deadce3bab',t:'MTcyNjk0NTc4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

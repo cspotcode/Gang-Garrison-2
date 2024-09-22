@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.3.8.0_11";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>shader_set_uniform_matrix_array</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Page outlining the function shader_set_uniform_matrix_array" />
+<meta name="rh-index-keywords" content="shader_set_uniform_matrix_array" />
+<meta name="search-keywords" content="shader_set_uniform_matrix_array" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Asset_Management/Shaders/shader_reset.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Asset_Management/Shaders/shader_set_uniform_matrix.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="shader_set_uniform_matrix_array">
+<span>shader_set_uniform_matrix_array</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1><span data-field="title" data-format="default">shader_set_uniform_matrix_array</span></h1>
+<p>This function sets a shader constant to hold an array of matrix values.</p>
+<p>You must previously have gotten the &quot;handle&quot; of the constant using the function <span class="inline3_func"><a href="shader_get_uniform.htm">shader_get_uniform</a></span>, and you will have to have previously initialised the array as an array of floating point values, where each successive group of 16 floats holds the contents of a 4x4 matrix.</p>
+<p>In the shader you&#39;d define the uniform as follows: </p>
+<p class="code">uniform mat4 u_mTransforms[MAX_TRANSFORMS];</p>
+<p>Every group of 16 floats in the array becomes directly accessible as an element of the uniform array, i.e. the first 16 array elements correspond to <span class="inline2">u_mTransforms[0]</span>, the next 16 elements to <span class="inline2">u_mTransforms[1]</span>, etc.</p>
+<p> </p>
+<div data-conref="../../../../assets/snippets/Note_Set_Uniforms_After_Shader_Set.hts">
+<p class="note"><span data-conref="../../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> All uniforms must be set <em>after</em> calling the function <span class="inline2"><a href="shader_set.htm">shader_set</a></span> and <em>before</em> calling <span class="inline2"><a href="shader_reset.htm">shader_reset</a></span>.</p>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">shader_set_uniform_matrix_array</span>(handle, array);</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>handle</td>
+<td><span data-keyref="Type_Handle_Shader_Uniform"><a target="_blank" href="shader_get_uniform.htm">Shader Uniform Handle</a></span></td>
+<td>The handle of the shader constant to set.</td>
+</tr>
+<tr>
+<td>array</td>
+<td><span data-keyref="Type_Array"><a target="_blank" href="../../../GML_Overview/Arrays.htm">Array</a></span></td>
+<td>A previously initialised array of floating point values. Its length should be a multiple of 16, i.e. <span class="inline2">number_of_matrices * 16</span>.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">max_transforms = 32;<br/>
+arr_transform_matrices = array_create(max_transforms * 16);<br/>
+var _arr_matrix = matrix_build_identity();<br/>
+var i = 0;<br/>
+repeat(max_transforms)<br/>
+{<br/>
+    array_copy(arr_transform_matrices, i * 16, _arr_matrix, 0, 16);<br/>
+    i++;<br/>
+}<br/>
+<br/>
+shader_set(sh_dynamic_batch);<br/>
+shader_params = shader_get_uniform(sh_dynamic_batch, &quot;u_mTransforms&quot;);<br/>
+shader_set_uniform_matrix_array(shader_params, arr_transform_matrices);<br/>
+vertex_submit(vb_batch, pr_trianglelist, texture);<br/>
+shader_reset();
+</p>
+<p>The above code example shows how to initialise an array of matrices and send it to a shader.</p>
+<p>First the maximum number of transforms is defined and an array is created to hold that number of transforms. An identity matrix is then copied to the array to initialise each individual matrix. A shader <span class="inline2">sh_dynamic_batch</span> that defines a <span class="inline2">mat4</span> array uniform named &quot;u_mTransforms&quot; is then set as the current shader and the handle to the uniform is retrieved with <span class="inline3_func"><a href="shader_get_uniform.htm">shader_get_uniform</a></span>. <span class="inline3_func"><span data-field="title" data-format="default">shader_set_uniform_matrix_array</span></span> is then called to set the value of that uniform to the given array. Finally, a vertex buffer stored in the variable <span class="inline2">vb_batch</span> is then submitted.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Shaders.htm">Shaders</a></div>
+<div style="float:right">Next: <a href="shader_reset.htm">shader_reset</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5a7c8adc3bab',t:'MTcyNjk0NTgwNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

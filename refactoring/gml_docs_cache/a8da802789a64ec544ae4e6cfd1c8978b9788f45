@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.1.0_27";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>struct_set_from_hash</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../assets/css/default.css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="struct_set_from_hash" />
+<meta name="search-keywords" content="struct_set_from_hash" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Variable_Functions/variable_get_hash.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Variable_Functions/struct_get_from_hash.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="struct_set_from_hash">
+<span>struct_set_from_hash</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">struct_set_from_hash</span></h1>
+<p>This function sets the value of the struct member referred to by the given hash, returned by an earlier call to <span class="inline3_func"><a href="variable_get_hash.htm">variable_get_hash</a></span>.</p>
+<div data-conref="../../../assets/snippets/Note_Variable_Hash_Faster_Access.hts">
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> The compiler automatically replaces variable names that it detects cannot ever change while your game is running (i.e. they are <em>constant at compile time</em>) with their hash value. It can be useful to get the hash yourself if you only know the name of the variable that&#39;s accessed while your game is running (i.e. <em>at runtime</em>). See <a href="../../../Settings/Runner_Details/Compiler_Optimisations.htm">Compiler Optimisations</a>.</p>
+</div>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">struct_set_from_hash</span>(struct, hash, val);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>struct</td>
+<td><span data-keyref="Type_Struct"><a target="_blank" href="../../GML_Overview/Structs.htm">Struct</a></span></td>
+<td>The struct reference to set</td>
+</tr>
+<tr>
+<td>hash</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The hash of the variable to set (as returned by <span class="inline3_func"><a href="variable_get_hash.htm">variable_get_hash</a></span>)</td>
+</tr>
+<tr>
+<td>val</td>
+<td><span data-keyref="Type_Any"><a target="_blank" href="../../GML_Overview/Data_Types.htm#variable">Any</a></span></td>
+<td>The value to assign to the struct variable</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Void">N/A</span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">point = {x: 200, y: 100};<br/>
+hash_x = variable_get_hash(&quot;x&quot;);<br/>
+repeat(1000)<br/>
+{<br/>
+    <span data-field="title" data-format="default">struct_set_from_hash</span>(data, hash_x, random(room_width));<br/>
+}</p>
+<p>The above code first creates a struct <span class="inline2">point</span> with an <span class="inline2">x</span> and <span class="inline2">y</span> variable in it. Next, the hash for the variable name &quot;x&quot; is then retrieved using <span class="inline3_func"><a href="variable_get_hash.htm">variable_get_hash</a></span>. After that, a repeat loop is executed a total of 1000 times. Every iteration of the repeat loop assigns a new random value to the point&#39;s x coordinate. This is done using <span class="inline3_func"><span data-field="title" data-format="default">struct_set_from_hash</span></span> to optimise this operation.</p>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="Variable_Functions.htm">Variable Functions</a></div>
+<div>Next: <a href="struct_exists_from_hash.htm">struct_exists_from_hash</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5aa07d023bab',t:'MTcyNjk0NTgxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

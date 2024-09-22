@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.11.3.0_26";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>angle_difference</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" href="../../../../assets/css/default.css" type="text/css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<script src="../../../../assets/scripts/canvas_helpers.js"></script>
+<meta name="rh-authors" content="Mark Alexander" />
+<meta name="topic-comment" content="Reference page for angle_difference" />
+<meta name="rh-index-keywords" content="angle_difference" />
+<meta name="search-keywords" content="angle_difference" />
+<meta name="is_pure" content="true" />
+<meta name="brsnext" value="GameMaker_Language/GML_Reference/Maths_And_Numbers/Angles_And_Distance/lengthdir_x.htm" /><meta name="brsprev" value="GameMaker_Language/GML_Reference/Maths_And_Numbers/Angles_And_Distance/dot_product_3d_normalised.htm" /></head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="angle_difference">
+<span>angle_difference</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+
+<h1>angle_difference</h1>
+<p>This function will return the smallest difference between the two specified angles, where the difference is calculated from the source angle towards the destination angle. The returned value will be between -180 and 180 degrees (where a positive angle is anti-clockwise and a negative angle is clockwise).</p>
+<p>The relationship between the &quot;source&quot; and &quot;destination&quot; angles is such that the difference that you get by calling <span class="inline2">angle_difference(dest, src)</span>, when added back to the <span class="inline2">src</span> value, gives you the <span class="inline2">dest</span> angle (although the exact numeric values may differ). You can use a similar technique to move the source angle towards the destination angle gradually every step, where you add, say, 10% of the returned difference back to <span class="inline2">src</span> to move it a little bit towards <span class="inline2">dest</span> (this is demonstrated in the example below).</p>
+<p> </p>
+<h4><b>Syntax:</b></h4>
+<p class="code">angle_difference(dest, src)</p>
+<table>
+<tbody>
+<tr>
+<th>Argument</th><th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>dest</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The destination or target angle</td>
+</tr>
+<tr>
+<td>src</td><td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The source angle</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<p class="code">var _dir = point_direction(x, y, mouse_x, mouse_y);<br/>
+var _diff = angle_difference(_dir, image_angle);<br/>
+image_angle += _diff * 0.1;</p>
+<p>The above code will get the direction from the instance to the mouse cursor, then get the difference between that angle and the current <a href="../../Asset_Management/Sprites/Sprite_Instance_Variables/image_angle.htm"><span class="inline">image_angle</span></a>, using this value to gradually rotate the instance towards the mouse.</p>
+<p><img class="invisible" src="../../../../assets/Images/InteractiveExamples/DirectionalSprite.png" /></p>
+<p><canvas class="gml_reference_example" height="128" id="angle_difference_example" width="128"> </canvas></p>
+<p class="canvas_subtitle">Interactive Example</p>
+<script>
+    //<![CDATA[
+    let elm = document.getElementById("angle_difference_example");
+    let ewidth = elm.clientWidth,
+      eheight = elm.clientHeight;
+    let context = elm.getContext("2d");
+    let imagePath = "../../../../assets/Images/InteractiveExamples/DirectionalSprite.png";
+    let img = new Image();
+    img.src = imagePath;
+    img.onload = () => {
+      drawImageCenteredRotated(img, context, ewidth / 2, eheight / 2, angle);
+    }
+    var angle = 0;
+    var targetAngle = 0;
+    createMouseMoveEvent(elm, (mx, my) => {
+      let diffX = mx - ewidth / 2;
+      let diffY = my - eheight / 2;
+      targetAngle = radToDeg(Math.atan2(diffY, diffX));
+    });
+    canvasLoop(() => {
+      let diff = angle_difference(targetAngle, angle);
+      angle += diff * 0.1;
+      context.clearRect(0, 0, ewidth, eheight);
+      drawImageCenteredRotated(img, context, ewidth / 2, eheight / 2, angle);
+    });
+    //]]>
+  </script>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div style="float:left">Back: <a href="Angles_And_Distance.htm">Angles And Distance</a></div>
+<div style="float:right">Next: <a href="lengthdir_x.htm">lengthdir_x</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c59158a903bab',t:'MTcyNjk0NTc0OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

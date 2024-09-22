@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../..";
+    gCommonRootRelPath = "../../..";
+    gTopicId = "8.2.2.19.0_38";
+  
+//]]></script>
+<script type="text/javascript" src="../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>buffer_set_surface_depth</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../assets/css/default.css" />
+<script src="../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="buffer_set_surface_depth" />
+<meta name="search-keywords" content="buffer_set_surface_depth" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+</head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="buffer_set_surface_depth">
+<span>buffer_set_surface_depth</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">buffer_set_surface_depth</span></h1>
+<p>This function copies data from a <span data-keyref="Type_ID_Buffer"><a target="_blank" href="buffer_create.htm">Buffer</a></span> into a surface&#39;s depth buffer.</p>
+<p>Depth values in the buffer must be of type <span class="inline2">buffer_f32</span> and range from 0 (representing the near plane) to 1 (representing the far plane).</p>
+<p>The copying process stops once either the buffer&#39;s boundaries or the surface&#39;s boundaries are reached.</p>
+<p class="note"><span data-conref="../../../assets/snippets/Tag_note.hts"><span class="note">NOTE</span></span> This function may not be supported on all platforms. To see if the copy was successful you can check the returned boolean value.</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">buffer_set_surface_depth</span>(buffer, surface, offset);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>buffer</td>
+<td><span data-keyref="Type_ID_Buffer"><a target="_blank" href="buffer_create.htm">Buffer</a></span></td>
+<td>The buffer from which the data will be copied</td>
+</tr>
+<tr>
+<td>surface</td>
+<td><span data-keyref="Type_ID_Surface"><a target="_blank" href="../Drawing/Surfaces/surface_create.htm">Surface</a></span></td>
+<td>The surface that has the depth buffer to write to</td>
+</tr>
+<tr>
+<td>offset</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Real</a></span></td>
+<td>The offset, in bytes, in the buffer to start copying data. This is automatically clamped to the buffer&#39;s boundaries.</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_Bool"><a target="_blank" href="../../GML_Overview/Data_Types.htm">Boolean</a></span> (whether the copy was successful)</p>
+<p> </p>
+<h4>Example:</h4>
+<div data-conref="../../../assets/snippets/Example_Buffer_Get_Set_Surface_Depth.hts">
+<p class="code_heading">Create Event</p>
+<p class="code">size = 256;<br/>
+row_bytesize = 4 * size;<br/>
+<br/>
+surface = -1;<br/>
+buffer = buffer_create(4 * size * size, buffer_fixed, 4);<br/>
+<br/>
+gpu_set_ztestenable(true);
+</p>
+<p class="code_heading">Draw Event</p>
+<p class="code">if (!surface_exists(surface))<br/>
+{<br/>
+    surface = surface_create(size, size);<br/>
+}<br/>
+<br/>
+surface_set_target(surface);<br/>
+draw_clear_ext(c_teal, 1, 1);<br/>
+gpu_set_depth(10000);<br/>
+draw_rectangle(100, 100, 150, 150, false);<br/>
+gpu_set_depth(0);<br/>
+draw_rectangle(150, 150, 200, 200, true);<br/>
+surface_reset_target();<br/>
+<br/>
+buffer_get_surface_depth(buffer, surface, 0);<br/>
+buffer_fill(buffer, row_bytesize * 112, buffer_f32, 0.7, row_bytesize * 20);<br/>
+buffer_set_surface_depth(buffer, surface, 0);<br/>
+<br/>
+surface_set_target(surface);<br/>
+gpu_set_depth(8000);<br/>
+draw_circle_color(120, 120, 20, c_red, c_red, false);<br/>
+surface_reset_target();
+</p>
+<p class="code_heading">Draw GUI Event</p>
+<p class="code">var _texture = surface_get_texture_depth(surface);<br/>
+draw_primitive_begin_texture(pr_trianglestrip, _texture);<br/>
+draw_vertex_texture(0, 0, 0, 0);<br/>
+draw_vertex_texture(size, 0, 1, 0);<br/>
+draw_vertex_texture(0, size, 0, 1);<br/>
+draw_vertex_texture(size, size, 1, 1);<br/>
+draw_primitive_end();<br/>
+<br/>
+draw_surface(surface, size, 0);
+</p>
+<p>The code above shows an extended example on how to use the functions <span class="inline3_func"><a href="buffer_get_surface_depth.htm">buffer_get_surface_depth</a></span> and <span class="inline3_func"><a href="buffer_set_surface_depth.htm">buffer_set_surface_depth</a></span>.</p>
+<p>In the Create event, a few variables are initialised: the (square) size of the surface, the number of bytes in the buffer taken by a single row of the surface, the surface variable and the buffer. Note that the buffer alignment can be set to 4 since all values are stored as a <span class="inline2">buffer_f32</span>, which takes up 4 bytes, i.e. each depth value is read/written at an offset that is a multiple of 4 bytes. Z-testing is also enabled with a call to <span class="inline3_func"><a href="../Drawing/GPU_Control/gpu_set_ztestenable.htm">gpu_set_ztestenable</a></span>.</p>
+<p>In the Draw event, the surface is newly created if it doesn&#39;t exist. Then, it is set as the render target, its colour buffer cleared to the colour <span class="inline2">c_teal</span> with an alpha value of 1 and its depth buffer cleared to 1. After that, two rectangles are drawn, a first one at a depth value of 10000, a second one at a depth value of 0. The render target is then reset.</p>
+<p>Still in the Draw event, the depth buffer&#39;s contents are copied into the previously created buffer using <span class="inline3_func"><a href="buffer_get_surface_depth.htm">buffer_get_surface_depth</a></span> and the depth value in 20 rows is changed by filling a region of the buffer with a new value (using <span class="inline3_func"><a href="buffer_fill.htm">buffer_fill</a></span>). The changes are written back to the depth buffer using <span class="inline3_func"><a href="buffer_set_surface_depth.htm">buffer_set_surface_depth</a></span>. After this, the surface is once again set as the render target. This time, a red disk is drawn on it, using a depth value of 8000 and the render target is once again reset.</p>
+<p>Finally, in the Draw GUI event, the depth texture and the surface are displayed alongside each other, showing the contents of both.</p>
+</div>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="Buffers.htm">Buffers</a></div>
+<div>Next: <a href="buffer_md5.htm">buffer_md5</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5d8c6d78903b',t:'MTcyNjk0NTkzMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>

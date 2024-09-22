@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<script type="text/javascript" language="JavaScript">
+    //<![CDATA[
+    function reDo() {
+      if (innerWidth != origWidth || innerHeight != origHeight)
+        location.reload();
+    }
+    if ((parseInt(navigator.appVersion) == 4) && (navigator.appName == "Netscape")) {
+      origWidth = innerWidth;
+      origHeight = innerHeight;
+      onresize = reDo;
+    }
+    onerror = null;
+  //]]>
+  </script>
+<style type="text/css">/*<![CDATA[*/
+
+    < !-- div.WebHelpPopupMenu {
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      z-index: 4;
+      visibility: hidden;
+    }
+
+    p.WebHelpNavBar {
+      text-align: right;
+    }
+
+    -->
+  
+/*]]>*/</style>
+<script type="text/javascript">//<![CDATA[
+
+    gRootRelPath = "../../../..";
+    gCommonRootRelPath = "../../../..";
+    gTopicId = "8.2.2.12.1.0_10";
+  
+//]]></script>
+<script type="text/javascript" src="../../../../template/scripts/rh.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/common.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topic.min.js"></script>
+<script type="text/javascript" src="../../../../template/scripts/topicwidgets.min.js"></script>
+<script type="text/javascript" src="../../../../whxdata/projectsettings.js"></script>
+<link rel="stylesheet" type="text/css" href="../../../../template/styles/topic.min.css" />
+<link rel="stylesheet" type="text/css" href="../../../../template/Charcoal_Grey/topicheader.css" />
+<meta name="topic-status" content="Draft" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>flexpanel_node_get_child</title>
+<meta name="generator" content="Adobe RoboHelp 2022" />
+<link rel="stylesheet" type="text/css" href="../../../../assets/css/default.css" />
+<script src="../../../../assets/scripts/main_script.js" type="module"></script>
+<meta name="rh-authors" content />
+<meta name="topic-comment" content />
+<meta name="rh-index-keywords" content="flexpanel_node_get_child" />
+<meta name="search-keywords" content="flexpanel_node_get_child" />
+<meta name="template" content="assets/masterpages/Manual_Keyword_Page.htt" />
+</head>
+<body>
+<div class="topic-header rh-hide" id="rh-topic-header">
+<div class="logo">
+</div>
+<div class="nav">
+<div class="title" title="flexpanel_node_get_child">
+<span>flexpanel_node_get_child</span>
+</div>
+<div class="gotohome" title="Click here to see this page in full context">
+<a href="#" onclick="rh._.goToFullLayout()">Click here to see this page in full context</a>
+</div>
+</div>
+</div>
+<div class="topic-header-shadow rh-hide" id="rh-topic-header-shadow"></div>
+<h1><span data-field="title" data-format="default">flexpanel_node_get_child</span></h1>
+<p>This function looks for a child node in the given parent node and returns the child.</p>
+<p>The function accepts either of two kinds of values, which is used to look for the child:</p>
+<ul class="colour">
+<li>The index of the child node, as passed into <span class="inline3_func"><a href="flexpanel_node_insert_child.htm">flexpanel_node_insert_child</a></span> or a value from <span class="inline2">0</span> to the value of <span class="inline2"><span class="inline3_func"><a href="flexpanel_node_get_num_children.htm">flexpanel_node_get_num_children</a></span> - 1</span></li>
+<li>The name of the child node, which is originally set either through the <span class="inline2">name</span> property in the <a href="flexpanel_create_node.htm">initial struct</a> or through <span class="inline3_func"><a href="flexpanel_node_set_name.htm">flexpanel_node_set_name</a></span>. This search is done recursively through all child nodes and the first matching node is returned.</li>
+</ul>
+<p>The function will return <span class="inline2"><span data-keyref="Type_Undefined"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">undefined</a></span></span> if the child was not found (e.g. the index was out of range or name was not found).</p>
+<p> </p>
+<h4>Syntax:</h4>
+<p class="code"><span data-field="title" data-format="default">flexpanel_node_get_child</span>(node, index_or_name);</p>
+<table>
+<colgroup>
+<col/>
+<col/>
+<col/>
+</colgroup>
+<tbody>
+<tr>
+<th>Argument</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>node</td>
+<td><span data-keyref="Type_ID_FlexPanel_Node"><a target="_blank" href="flexpanel_create_node.htm">Flex Panel Node</a></span></td>
+<td>The parent node from which the child will be retrieved</td>
+</tr>
+<tr>
+<td>index_or_name</td>
+<td><span data-keyref="Type_Real"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">Real</a></span> or <span data-keyref="Type_String"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">String</a></span></td>
+<td>Either the index of the node or its name</td>
+</tr>
+</tbody>
+</table>
+<p> </p>
+<h4>Returns:</h4>
+<p class="code"><span data-keyref="Type_ID_FlexPanel_Node"><a target="_blank" href="flexpanel_create_node.htm">Flex Panel Node</a></span> or <span data-keyref="Type_Undefined"><a target="_blank" href="../../../GML_Overview/Data_Types.htm">undefined</a></span></p>
+<p> </p>
+<h4>Example:</h4>
+<div data-conref="../../../../assets/snippets/Example_Flex_Panel_Generate_Instance.hts">
+<p class="code">generate_instance = function(_node, _depth)<br/>
+{<br/>
+    // Get layout data<br/>
+    var _pos = flexpanel_node_layout_get_position(_node, false);<br/>
+    var _name = flexpanel_node_get_name(_node);<br/>
+    <br/>
+    // Create instance<br/>
+    instance_create_depth(_pos.left, _pos.top, _depth, obj_ui_element,<br/>
+    {<br/>
+        name: _name,<br/>
+        width: _pos.width,<br/>
+        height: _pos.height<br/>
+    });<br/>
+    <br/>
+    // Call for children (recursive)<br/>
+    var _children_count = flexpanel_node_get_num_children(_node);<br/>
+    for (var i = 0; i &lt; _children_count; i++)<br/>
+    {<br/>
+        var _child = flexpanel_node_get_child(_node, i);<br/>
+        generate_instance(_child, _depth - 1);<br/>
+    }<br/>
+}<br/>
+<br/>
+generate_instance(n_root, 0);
+</p>
+<p>This function takes a node and a depth. It then gets the absolute positional data for the node and creates an <span data-keyref="Type_ID_Instance"><a target="_blank" href="../../Asset_Management/Instances/Instance_Variables/id.htm">Object Instance</a></span> at the node&#39;s calculated position, giving the instance the node&#39;s name, width and height.</p>
+<p>It then iterates through each child of the node and runs the same function for each child.</p>
+<p>Finally, the function is run for the root node, which will then be recursively executed for all of its child nodes as well.</p>
+</div>
+<p> </p>
+<p> </p>
+<div class="footer">
+<div class="buttons">
+<div class="clear">
+<div>Back: <a href="section_index.htm">Flex Panel Functions</a></div>
+<div>Next: <a href="flexpanel_node_get_child_hash.htm">flexpanel_node_get_child_hash</a></div>
+</div>
+</div>
+<h5><span data-keyref="Copyright Notice">© Copyright YoYo Games Ltd. 2024 All Rights Reserved</span></h5>
+</div>
+
+
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'8c6c5dcaddda903b',t:'MTcyNjk0NTk0Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
