@@ -23,4 +23,4 @@ HTTP
 Updater
 Holiday
 Gear
-<other>
+[other]
